@@ -1,0 +1,30 @@
+page{background: #f1f1f1;}
+/* 问答列表 */
+.list_con{padding: 0 0 120rpx;width: 100%;overflow: hidden;}
+.list_type{padding: 0 24rpx;width: 100%;height: 84rpx;border-bottom: solid 1px #f1f1f1;line-height: 84rpx;font-size: 27rpx;color: #333333;background: #fff;box-sizing: border-box;overflow: hidden;}
+.list_type span{margin: 0 8rpx;}
+.list_type i.iconfont{margin: 22rpx 0;width: 39rpx;height: 39rpx;line-height: 39rpx;font-size: 39rpx;display: inline-block;vertical-align: top;}
+.list_type i.right{font-size: 27rpx;}
+
+.list_question{padding: 0 75rpx;margin-bottom: 15rpx;line-height: 87rpx;font-size: 27rpx;color: #333333;background: #fff;box-sizing: border-box;}
+.list_question .list{width: 50%;height: 87rpx;border-bottom: solid 1px #f1f1f1;border-right: solid 1px #f1f1f1;text-align: center;overflow: hidden;box-sizing: border-box;}
+.list_question .list:nth-child(even){border-right: 0 none;}
+
+.isrow{padding: 0 0 0 75rpx;}
+.isrow .list{width: 100%;text-align: left;}
+
+/* 底部按钮 */
+.foot_fixed{margin: auto;width: 100%;height: 120rpx;line-height: 120rpx;background: #fff;border-top: solid 1px #f1f1f1;overflow: hidden;position: fixed;left: 0;right: 0;bottom: 0;box-sizing: border-box;}
+.foot_fixed .list{padding: 27rpx 0 12rpx;width: 50%;height: 120rpx;line-height: 39rpx;font-size: 27rpx;border-right: solid 1px #f1f1f1;text-align: center;color: #333333;box-sizing: border-box;}
+.foot_fixed .list span{display: block;}
+.foot_fixed .list i.iconfont{font-size: 39rpx;}
+
+/* 关于我们 */
+.about_con{margin-top: 87rpx;width: 100%;overflow: hidden;}
+.about_con .img{margin: 80rpx auto;width: 120px;}
+.about_con .about_list navigator{padding: 0 27rpx;height: 80rpx;line-height: 80rpx;border-bottom: solid 1px #f1f1f1;font-size: 27rpx;background: #fff;color: #333;}
+.about_con .about_list navigator:last-child{margin-top: 10px;}
+.about_con .about_list navigator span{margin: 0 30px;display: block;}
+.about_con .about_list .icon_1{font-size: 44rpx;}
+.about_con .about_list .icon_2{font-size: 27rpx;}
+.about_con .about_text{width: 100%;line-height: 39rpx;text-align: center;color: #999;position: fixed;left: 0;bottom: 39rpx;}

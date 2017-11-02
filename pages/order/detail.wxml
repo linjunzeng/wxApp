@@ -1,0 +1,112 @@
+<view class="content order_con order_detail_con">
+    <view class="tips clearfix" wx:if="{{payinfo.order_status == 10}}">
+        <i class="icon iconfont fl icon-e60b"></i>
+        <view wx:if="{{payinfo.countdown}}" class="textover">待付款 ( 还剩 {{timeDate}})</view>
+        <view  wx:else class="textover">订单已过期</view>
+    </view>
+    <view class="tips clearfix" wx:if="{{payinfo.order_status == 20}}">
+        <i class="icon iconfont fl icon-e6cc"></i>
+        <view class="textover">等待商家发货</view>
+    </view>
+    <view class="tips clearfix" wx:if="{{payinfo.order_status == 30}}">
+        <i class="icon iconfont fl icon-e6cb"></i>
+        <view wx:if="{{payinfo.countdown}}" class="textover">{{timeDate}} 后自动收货</view>
+        <view  wx:else class="textover">已收货</view>
+    </view>
+    <view class="tips clearfix" wx:if="{{payinfo.order_status == 40}}">
+        <i class="icon iconfont fl icon-wancheng"></i>
+        <view class="textover">已完成</view>
+    </view>
+    <view class="tips clearfix" wx:if="{{payinfo.order_status == 70}}">
+        <i class="icon iconfont fl icon-quxiao"></i>
+        <view class="textover">您已经取消此订单了</view>
+    </view>
+
+    <view class="addr_content">
+        <view class="name_con clearfix">
+            <view class="name fl">{{address.consignee}}</view>
+            <view class="phone fl">{{address.mobile}}</view>
+        </view>
+        <view class="addrtext">
+            <i class="icon iconfont fl icon-e6c7"></i>
+            <span class="textover2">收货地址：{{address.country+address.province+address.city+address.area+address.address}}</span>
+        </view>
+    </view>
+
+    <view class="list_con">
+        <view class="list" wx:for="{{goods}}">
+            <navigator url="/pages/goods/detail?gsn={{item.gsn}}" class="goods_list clearfix">
+                <view class="img fl">
+                    <image src="{{img_url+item.goods_thumb}}"/>
+                </view>
+                <view class="info">
+                    <view class="title textover">{{item.goods_title}}</view>
+                    <view class="clearfix">
+                        <view class="num fr">× {{item.quantity}}</view>
+                        <view class="spec textover">{{item.spec_title}}</view>
+                    </view>
+                    <view class="price textover">￥ {{item.price_sale}}</view>
+                </view>
+            </navigator>
+            <view class="after_sale" wx:if="{{payinfo.order_status == 20 || payinfo.order_status == 30}}">
+                <view class="refund" data-key="{{index}}" bindtap="refund">{{item.refund_show}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="list_con item_con">
+        <view class="list">
+            <view class="left fl">订单编号</view>
+            <view class="right textover">{{payinfo.order_sn}}</view>
+        </view>
+        <view class="list_con_1">
+            <view class="list">
+                <view class="left fl">商品合计</view>
+                <view class="right textover">￥ {{payinfo.pure_sum}}</view>
+            </view>
+            <view class="list">
+                <view class="left fl">优惠券抵扣</view>
+                <view class="right textover">￥ {{payinfo.order_coupon}}</view>
+            </view>
+            <view class="list">
+                <view class="left fl">税费</view>
+                <view class="right textover">￥ {{payinfo.order_tax}}</view>
+            </view>
+            <view class="list">
+                <view class="left fl">运费</view>
+                <view class="right textover">￥ {{payinfo.order_freight}}</view>
+            </view>
+            <view class="list">
+                <view class="left fl">下单时间</view>
+                <view class="right textover">{{order_time}}</view>
+            </view>
+        </view>
+        <view class="list">
+            <view class="left fl">本单请支付</view>
+            <view class="right textover red">￥ {{payinfo.order_sum}}</view>
+        </view>
+    </view>
+    <view class="order_foot" wx:if="{{payinfo.order_status == 10 || payinfo.order_status == 30}}">
+        <navigator wx:if="{{payinfo.order_status == 10}}" url="./pay?order_sn={{order_sn}}" class="btn fr">立即支付</navigator>
+        <view wx:if="{{payinfo.order_status == 10}}" class="btn bg1 fr" catchtap="modelShow">取消订单</view>
+        <view wx:if="{{payinfo.order_status == 30}}" class="btn fr" catchtap="receipt">确认收货</view>
+        <navigator wx:if="{{payinfo.order_status == 30}}" url="./logistical?order_sn={{order_sn}}" class="btn bg1 fr">物流查询</navigator>
+        <view wx:if="{{payinfo.order_status == 30 && payinfo.countdown > 0}}" class="btn bg1 fr" catchtap="delay">延长收货</view>
+    </view>
+
+    <!-- 取消订单弹窗 -->
+    <view class="order_mask" wx:if="{{show}}" bindtap="closeModel"></view>
+    <view class="order_slide" wx:if="{{show}}">
+        <view class="title">请选择取消订单的理由</view>
+        <view class="item_con" wx:if="{{remarkList.length != 0}}">
+            <view class="item clearfix" wx:for="{{remarkList}}" data-key="{{index}}" bindtap="check">
+                <i class="iconfont fr icon-checkbox {{remark == index ? 'active':''}}"></i>
+                <view class="text textover">{{item}}</view>
+            </view>
+        </view>
+        <view class="title btn_con clearfix">
+            <view class="btn fl" bindtap="closeModel">取消</view>
+            <view class="btn fl" bindtap="cancel">确定</view>
+        </view>
+    </view>
+    <!-- 取消订单弹窗结束 -->
+</view>

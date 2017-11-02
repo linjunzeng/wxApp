@@ -1,0 +1,68 @@
+<view class="detail_con regiment_con" wx:if="{{detail}}">
+    <view class="goods_info clearfix">
+        <view class="img fl"><image src="{{detail.goods.goods_thumb}}"/></view>
+        <view class="right">
+            <view class="name textover2">{{detail.goods.goods_title}}</view>
+            <view class="num">{{detail.regiment_list.num}} 人团 <span>已团 {{detail.goods.has_rcount}} 件</span></view>
+            <view class="price">￥ {{detail.goods.price_group}} <span>拼团省 {{detail.goods.goods_coupon*-1}} 元</span></view>
+        </view>
+    </view>
+    <view class="avatar_con">
+       <view class="img" wx:for="{{(detail.regiment_list.num-0)}}">
+           <image wx:if="{{detail.user[index]}}" src="{{detail.user[index].avatar}}"/>
+           <i wx:if="{{!detail.user[index]}}" class="img_none iconfont icon-e6bc"></i>
+       </view>
+       <view class="time">还剩 <span class="red">{{detail.regiment_list.has_num}}</span> 个名额, <span class="red">{{downtime}}</span> 后结束</view>
+       <view class="btn" bindtap="mask">一键参团</view>
+       <view class="tips">拼团须知</view>
+       <view><image mode='widthFix' src="../../static/images/active/regiment/regiment_tips.png"/></view>
+   </view>
+
+   <!-- 弹层 -->
+    <view wx:if="{{isshow}}" class="detail_mask"  data-type="2" catchtap="mask">
+        <view class="mask_content" wx:if="{{visable}}" catchtap>
+            <i class="iconfont close icon-close1" data-type="2" catchtap="mask"></i>
+            <view wx:if="{{type == 1}}" class="content explain">
+                <view class="title">商品说明</view>
+                <view class="item clearfix">
+                    <view class="left fl">税费说明 : </view>
+                    <view class="right">据国家政策规定，本商品适用于“跨境综合税”，税率为11.9%，实际结算税费请以提交订单时的应付总额明细为准。</view>
+                </view>
+                <view class="item clearfix">
+                    <view class="left fl">假一赔十 : </view>
+                    <view class="right">友品集全球购每一件商品都通过严苛的品质把关，保障正品，保障品质。特推出“假一赔十”的正品保障政策，杜绝一切假货，让您无忧购物。</view>
+                </view>
+                <view class="item clearfix">
+                    <view class="left fl">退<text decode="{{true}}">&emsp;&emsp;</text>货 : </view>
+                    <view class="right">本商品不支持7天无理由退货</view>
+                </view>
+                <view class="item clearfix">
+                    <view class="left fl">发<text decode="{{true}}">&emsp;&emsp;</text>货 : </view>
+                    <view class="right">自营{{typeArr[detail.goods_pro-1]}}仓库发货</view>
+                </view>
+            </view>
+             <view wx:if="{{type == 2}}" class="content goods">
+                 <view class="info">
+                    <view class="img fl"><image src="{{detail.goods.goods_thumb}}"></image></view>
+                    <view class="right">
+                        <view class="price">￥{{price_group || detail.goods.price_section}}</view>
+                        <view class="stock">库存：{{store}}</view>
+                        <view wx:if="{{detail.goods.spec_type > 0}}">已选择： {{specStr || '未选择'}}</view>
+                        <view wx:else>已选择： 默认</view>
+                    </view>
+                </view>
+                <view class="item" wx:if="{{detail.goods.spec_type != 0}}">
+                    <view wx:for="{{detail.specs.items_show}}" wx:for-index="key">
+                        <view class="name">{{item.name_name}}</view>
+                        <ul class="clearfix">
+                            <li class="" class="spce fl {{iids[key] == list.iid ? 'active': ''}}" wx:for="{{item.items}}" wx:for-item="list" data-key="{{key}}" data-name="{{list.item_name}}" data-iid="{{list.iid}}" bindtap="checkSpec">{{list.item_name}}</li>
+                        </ul>
+                    </view>
+                </view>
+                <view class="btn_con clearfix">
+                    <view class="btn buy fl" bindtap="buyNow">立即参团</view>
+                </view> 
+            </view> 
+        </view>
+    </view>
+</view>

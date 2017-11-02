@@ -1,0 +1,21 @@
+page{background: #f1f1f1;}
+.member_con .member_item{margin-bottom: 24rpx;overflow: hidden;}
+.member_con .header .member_bg{width: 100%;height: 438rpx;background: no-repeat center bottom;background-size: cover;position: relative;overflow: hidden;}
+.member_con .header .member_bg .img{margin: 120rpx auto 0;width: 156rpx;height: 156rpx;border: solid 3rpx #fff;border-radius: 50%;overflow: hidden;}
+.member_con .header .member_bg .name{margin: 20rpx auto 0;text-align: center;}
+.member_con .header .member_bg .level{padding: 9rpx 0;width: 200rpx;text-indent: 60rpx;position: absolute;right: 0;bottom: 80rpx;background: rgba(0,0,0,0.45);color: #fff;border-radius: 30rpx 0 0 30rpx;}
+.member_con .header .level image{width: 30rpx;position: absolute;left: 14rpx;top: 14rpx;}   
+
+.member_con .header .list_con{width: 100%;border-top: solid 1px #f1f1f1;background: #fff;}
+.member_con .header .list{padding: 24rpx 0;width: 33.33%;border-right: solid 1px #f1f1f1;text-align: center;box-sizing: border-box;}
+.member_con .header .list:last-child{border: 0 none;}
+.member_con .header .list i{margin-right: 10rpx;font-size: 46rpx}
+.member_con .header .list .right{line-height: 44rpx;text-align: left;vertical-align: top;display: inline-block;}
+
+.member_con .order .list_con{width: 100%;background: #fff;}
+.member_con .order .list{padding: 30rpx 0;width: 20%;text-align: center;position: relative;}
+.member_con .order .list i{font-size: 50rpx}
+.member_con .order .list .counts{width: 39rpx;height: 39rpx;line-height: 1.5; font-size: 24rpx;border-radius: 50%;text-align: center;background: #e41b45;color: #fff;position: absolute;left: 58%;top: 15rpx}
+
+.member_con .item{padding: 27rpx;width: 100%;border-bottom: solid 1px #f1f1f1;line-height: 39rpx;background: #fff;box-sizing: border-box;}
+.member_con .item .icon_1{margin-right: 12rpx;font-size: 36rpx}

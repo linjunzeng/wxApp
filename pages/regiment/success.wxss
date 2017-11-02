@@ -1,0 +1,17 @@
+@import '/static/css/order.wxss';
+page{background: #f1f1f1;}
+.regiment_con .list_con .list{height: auto;}
+.regiment_con .list_con .left{color: #353945;}
+
+.regiment_con .info_con{padding: 60rpx;text-align: center;background: #fff;}
+.regiment_con .info_con .title{font-size: 36rpx}
+.regiment_con .info_con i{font-size: 39rpx;color: #666;}
+.regiment_con .info_con .tips{margin: 20rpx auto;width: 70%;line-height: 48rpx;color: #666;}
+.regiment_con .info_con .red{color: #e41b45;}
+
+.regiment_con .avatar_con{margin-top: 39rpx;}
+.regiment_con .avatar_con .img{margin: 0 20rpx;width: 92rpx;height: 92rpx;display: inline-block;position: relative;}
+.regiment_con .avatar_con .img image, .regiment_con .avatar_con .img .img_none{margin: auto;max-width: 100%;max-height: 100%;border-radius: 50%;position: absolute;left: 0;top: 0;right: 0;bottom: 0;overflow: hidden;}
+.regiment_con .avatar_con .img .img_none{line-height: 92rpx;border: dashed 1px #c8c8c8;font-size: 45rpx;color: #c8c8c8;}
+.regiment_con .avatar_con .img:first-child:before{content: '团长';padding: 3rpx 15rpx;border-radius: 8rpx;font-size: 24rpx;text-align: center;background: #e41b45;color: #fff;position: absolute;left: -20px;top: -20rpx;z-index: 9999;}
+.regiment_con .info_con .btn{margin-top: 20rpx;padding: 20rpx 0;width: 100%;border-radius: 8rpx;text-align: center;background: #e41b45;color: #fff;}

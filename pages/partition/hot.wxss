@@ -1,0 +1,17 @@
+page{background: #f1f1f1;}
+.banner_con{height: 378rpx;}
+.banner_con image{height: auto;}
+
+.goods_con{background: #fff;}
+.goods_con .goods{padding: 20rpx;border-bottom: solid 1px #f1f1f1;}
+.goods_con .goods .sort_img{margin: 20rpx auto 40rpx;width: 70%;display: block;}
+.goods_con .goods .img{margin-right: 20rpx;width: 200rpx;height: 200rpx;position: relative;}
+.goods_con .goods .img image{margin: auto;max-width: 100%;max-height: 100%;position: absolute;top: 0;right: 0;bottom: 0;left: 0;}
+.goods_con .goods .right{height: 200rpx;overflow: hidden}
+.goods_con .goods .name{min-height: 80rpx;line-height: 40rpx;}
+.goods_con .goods .price{margin-top: 20rpx;height: 40rpx;line-height: 40rpx;font-size: 32rpx;color: #e41b45;overflow: hidden;}
+.goods_con .goods .price del{margin-left: 10rpx;font-size: 24rpx;text-decoration: line-through;color: #999;}
+.goods_con .goods .country{margin-top: 20rpx;line-height: 40rpx;color: #999;}
+.goods_con .goods .country image{margin: 4rpx 10rpx 4rpx 0;width: 32rpx;height: 32rpx;vertical-align: top;}
+.goods_con .goods .country .num{color: #666;}
+.goods_con .goods .country .num text{color: #e41b45;}

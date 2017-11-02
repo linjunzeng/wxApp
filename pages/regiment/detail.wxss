@@ -1,0 +1,19 @@
+@import '/static/css/detail.wxss';
+.regiment_con .info_con {line-height: 40rpx;}
+.regiment_con .regiment_font{color: #999;}
+.regiment_con .regiment_tisp{margin: 20rpx 0 0;line-height: 44rpx;font-size: 24rpx;color: #999;}
+.regiment_con .regiment_tisp span{color: #e41b45;}
+
+.regiment_con .regiment_font{color: #999;}
+
+.regiment_con .info_regiment{border-top: solid 20rpx #f1f1f1;border-bottom: solid 20rpx #f1f1f1;}
+.regiment_con .info_regiment .header{padding: 20rpx 30rpx;border-bottom: solid 1px #f1f1f1;}
+.regiment_con .info_regiment .list_con{padding: 20rpx 30rpx;border-bottom:solid 1px #f1f1f1;}
+.regiment_con .info_regiment .btn{margin: 15rpx 0 15rpx 9rpx;width: 135rpx;height: 57rpx;line-height: 57rpx;border: solid 1px #e41b45;border-radius: 8rpx;text-align: center;color: #e41b45;}
+.regiment_con .info_regiment .img{margin-right: 9rpx;width: 92rpx;height: 92rpx;border-radius: 50%;position: relative;overflow: hidden;}
+.regiment_con .info_regiment image{margin: auto;max-height: 100%;max-width: 100%;position: absolute;left: 0;top: 0;right: 0;bottom: 0;}
+.regiment_con .info_regiment .center{height: 92rpx;line-height: 48rpx;overflow: hidden;}
+
+.regiment_con .detail_foot .icon{width: 25%;}
+.regiment_con .detail_foot .btn{width: 100%;}
+.regiment_con .goods .btn{width: 100%;}

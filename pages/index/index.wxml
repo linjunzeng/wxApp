@@ -1,0 +1,107 @@
+<!--index.wxml-->
+<view class="container">
+    <view class='search_con'><navigator url="/pages/goods/search" class="search">搜索你想要的商品</navigator></view>
+    <view wx:for="{{indexdata}}" class="index_con">
+        <view wx:if="{{item.type_code == 9991}}" class="webinfo_con clearfix" style="background-image: url({{HOST_STATIC}}image/wap/wxapp/info_bg.png)">
+            <view class="img fl"><image src="{{item.son[0].content_image}}" mode="widthFix"></image></view>
+            <view class="share_info_text fr">分享次数：{{item.son[0].content_share}} </view>
+            <view class="share_info">
+                <view class="name textover">{{item.son[0].content_title}}</view>
+                <view class="txt textover3">{{item.son[0].content_desc}}</view>
+            </view>
+        </view>  
+        <swiper wx:if="{{item.type_code == 1 && item.son.length != 0}}" indicator-dots="true" autoplay="true" interval="5000" duration="300" style="height: 560rpx">
+            <block wx:for="{{item.son}}" wx:for-item="list">
+                <swiper-item>
+                    <image data-url="{{list.content_url}}" bindtap="navgate" src="{{list.content_image}}" class="slide-image"  mode="aspectFill"/>
+                </swiper-item>
+            </block>
+        </swiper>
+
+        <view wx:if="{{item.type_code == 2}}" class="area_con">
+            <view wx:if="{{item.show_title == 1}}" class="title">{{item.title}}</view>
+            <view class='list_con'>
+                <view class="navigator" data-url="{{list.content_url}}" bindtap="navgate" style="width: 25%;height: 154rpx"  wx:for="{{item.son}}" wx:for-item="list">
+                    <image src="{{list.content_image}}" mode="aspectFill"></image>
+                </view>
+            </view>  
+        </view>
+
+        <view wx:if="{{item.type_code == 3}}" class="area_con">
+            <view wx:if="{{item.show_title == 1}}" class="title">{{item.title}}</view>
+            <view class='list_con'>
+                 <view class="navigator" data-url="{{list.content_url}}" bindtap="navgate" style="width: 100%;height: 156rpx"  wx:for="{{item.son}}" wx:for-item="list">
+                    <image src="{{list.content_image}}" mode="aspectFill"></image>
+                </view>
+            </view>  
+        </view>
+
+        <view wx:if="{{item.type_code == 4}}" class="area_con">
+            <view wx:if="{{item.show_title == 1}}" class="title">{{item.title}}</view>
+            <view class='list_con'>
+                 <view class="navigator" data-url="{{list.content_url}}" bindtap="navgate" style="width: 100%;height: 196rpx"  wx:for="{{item.son}}" wx:for-item="list">
+                    <image src="{{list.content_image}}" mode="aspectFill"></image>
+                </view>
+            </view>  
+        </view>
+
+        <view wx:if="{{item.type_code == 5}}" class="area_con">
+            <view wx:if="{{item.show_title == 1}}" class="title">{{item.title}}</view>
+            <view class='list_con list_con1'>
+                 <view class="navigator" data-url="{{list.content_url}}" bindtap="navgate" style="width: 50%;height: 451rpx"  wx:for="{{item.son}}" wx:for-item="list">
+                    <image src="{{list.content_image}}" mode="aspectFill"></image>
+                </view>
+            </view>  
+        </view>
+
+        <view wx:if="{{item.type_code == 6}}" class="area_con">
+            <view wx:if="{{item.show_title == 1}}" class="title">{{item.title}}</view>
+            <view class='list_con' style="{{item.show_title == 1 ? '': 'margin-top: 10rpx;'}}">
+                 <view class="navigator" data-url="{{list.content_url}}" bindtap="navgate" style="width: 100%;height: 378rpx"  wx:for="{{item.son}}" wx:for-item="list">
+                    <image src="{{list.content_image}}" mode="aspectFill"></image>
+                </view>
+            </view>  
+        </view>
+
+        <view wx:if="{{item.type_code == 7}}" class="area_con">
+            <view wx:if="{{item.show_title == 1}}" class="title">{{item.title}}</view>
+            <scroll-view scroll-x>
+                <view class='list_con list_con2' style="width: {{item.son.length*310}}rpx; {{item.show_title == 1 ? '': 'margin-top: 10rpx;'}}">
+                     <view class="navigator" data-url="{{list.content_url}}" bindtap="navgate" wx:for="{{item.son}}" wx:for-item="list">
+                        <view class="img"><image src="{{list.content_image}}" mode="aspectFill"></image></view>
+                        <view class="name textover2">{{list.content_title}}</view>
+                        <view class="price">
+                            ￥{{list.content_price_sale}}
+                            <span class="del">￥{{list.content_price_market}}</span>
+                        </view>
+                    </view>
+                </view>  
+            </scroll-view>
+        </view>
+
+        <view wx:if="{{item.type_code == 8}}" class="area_con">
+            <view wx:if="{{item.show_title == 1}}" class="title">{{item.title}}</view>
+            <view class='list_con list_con1'>
+                 <view class="navigator" data-url="{{list.content_url}}" bindtap="navgate" style="width: 50%;height: 213rpx"  wx:for="{{item.son}}" wx:for-item="list">
+                    <image src="{{list.content_image}}" mode="aspectFill"></image>
+                </view>
+            </view>  
+        </view>
+
+        <view wx:if="{{item.type_code == 9}}" class="area_con">
+            <view wx:if="{{item.show_title == 1}}" class="title">{{item.title}}</view>
+            <view class='list_con list_con2 list_con3'>
+                 <view class="navigator" data-url="{{list.content_url}}" bindtap="navgate" wx:for="{{item.son}}" wx:for-item="list">
+                    <view class='goodslist'>
+                        <view class="img"><image src="{{list.content_image}}" mode="aspectFill"></image></view>
+                        <view class="name textover2">{{list.content_title}}</view>
+                        <view class="price">
+                            ￥{{list.content_price_sale}}
+                            <span class="del">￥{{list.content_price_market}}</span>
+                        </view>
+                    </view>
+                </view>
+            </view>  
+        </view>
+    </view>
+</view>

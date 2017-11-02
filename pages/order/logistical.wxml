@@ -1,0 +1,13 @@
+ <view class="content">
+    <navigator url="./logistics_detail?order_sn={{order_sn}}&did={{item.did}}" class="list clearfix" wx:for="{{list}}">
+        <view class="img fl">
+            <image src="{{item.goods_info.goods_thumb}}"/>
+            <view class="number">共 {{item.goods_count}} 件商品</view>
+        </view>
+        <view class="info">
+            <view class="textover">物流状态: <span>{{item.state_content}}</span></view>
+            <view class="textover">物流中心: {{item.express_name}}</view>
+            <view class="textover">运单编号: {{item.express_nu}}</view>
+        </view>
+    </navigator>
+</view> 

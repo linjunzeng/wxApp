@@ -1,0 +1,25 @@
+<view class="search_con">
+    <!--@submit.prevent="setKeyword"   @focus="ShowList"-->
+    <form class="head_con" bindsubmit="searchForm">
+        <i class="iconfont fr icon-sousuo" bindtap="searchForm"></i>
+        <view class="center">
+            <input type="text" name="keyword" placeholder="搜索商品" value="{{keyword}}" bindinput="setKeyword" bindconfirm="searchForm"/>
+        </view>
+    </form>
+    <view class="fixed_height"></view>
+</view>
+<view>
+    <view class="hot_con" wx:if="{{hotarr.length != 0}}">
+        <view class="title">热门搜索</view>
+        <ul class="clearfix">
+            <li class="fl" wx:for="{{hotarr}}" wx:if="{{item != ''}}" data-item="{{item}}" bindtap="searchForm"><span class="textover">{{item}}</span></li>
+        </ul>
+    </view>
+    <view class="hot_con" wx:if="{{logarr.length != 0}}">
+        <view class="title">历史搜索</view>
+        <ul class="clearfix">
+            <li class="fl" wx:for="{{logarr}}" wx:if="item != ''" data-item="{{item}}" bindtap="searchForm"><span class="textover">{{item}}</span></li>
+        </ul>
+        <view class="clearlog" bindtap="clearLog">清除历史记录</view>
+    </view>
+</view>

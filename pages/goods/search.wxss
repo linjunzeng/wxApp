@@ -1,0 +1,15 @@
+.search_con{position:relative;z-index:100;}
+.search_con .fixed_height{height: 87rpx}
+.search_con .head_con{width: 100%;height: 87rpx;line-height: 87rpx;border-bottom: solid 1px #efefef;position: fixed;left: 0;top: 0;background: #fff;z-index: 99;}
+.head_con .center{margin: 0 80rpx 0 20rpx;height: 100%;overflow: hidden}
+.head_con .center input{margin: 10rpx 0;padding: 0 24rpx;width: 100%;height: 68rpx;border-radius: 12rpx;box-sizing: border-box;background: #efefef;}
+.head_con .iconfont{width: 80rpx;height: 100%;line-height: 93rpx;text-align: center;display: block;}
+.associate_search{padding:0 24rpx 24rpx 24rpx;background-color:#fff;font-size:27rpx;color:#666;border-top:1px solid #f1f1f1;}
+.associate_search li{height:84rpx;line-height:84rpx;border-bottom:1px solid #f1f1f1;box-sizing:border-box;}
+.search_key{color:#e4393c;}
+
+.hot_con{margin: 27rpx 60rpx;}
+.hot_con .title{height: 80rpx;line-height: 80rpx;border-bottom: solid 1px #efefef;}
+.hot_con li{margin: 20rpx 0;width: 33.33%;overflow: hidden;}
+.hot_con li span{margin: 0 27rpx;padding:0 8rpx;height: 60rpx;line-height: 60rpx;border-radius: 12rpx;text-align: center;background: #efefef;display: block;}
+.hot_con .clearlog{margin-top: 30rpx;width: 100%;text-align: center;}

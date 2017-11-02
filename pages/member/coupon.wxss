@@ -1,0 +1,25 @@
+page{background: #f1f1f1;}
+.coupon_con .coupon_nav{width: 100%;border-bottom: solid 1px #f1f1f1;position: fixed;left: 0;top: 0;z-index: 9999;}
+.coupon_con .coupon_nav li{width: 33.3%;height: 88rpx;line-height: 88rpx;text-align: center;background: #fff;}
+.coupon_con .coupon_nav .active{color:#e41b45;position: relative;}
+.coupon_con .coupon_nav .active::before{margin: auto;content: '';width: 80rpx;height: 4rpx;background: #e41b45;position: absolute;left: 0;bottom: 0;right: 0;}
+
+.coupon_con .coupon_box{margin-top:110rpx;background:#fff;overflow: hidden}
+.coupon_con .coupon_list{margin:27rpx auto;padding: 2rpx 2rpx 2rpx 40rpx;width:543rpx;height:200rpx;position:relative;background:#e41b45;overflow: hidden}
+.coupon_con .coupon_list .coupon_text{width: 100%;height:100%;background:#fff;}
+.coupon_con .coupon_list .coupon_text .par{width:200rpx;height:100%;line-height:200rpx;font-size:69rpx;color:#e41b45;}
+.coupon_con .coupon_list .coupon_text .copy{padding:12rpx 24rpx;overflow: hidden;}
+.coupon_con .coupon_list .coupon_text .copy .condition{padding:20rpx 0;font-size:32rpx;}
+.coupon_con .coupon_list .coupon_text .copy .time{font-size:24rpx;}
+
+
+.coupon_con .coupon_list .left_i,
+.coupon_con .coupon_list .right_i{margin-top:-16rpx;width:32rpx;height:32rpx;position:absolute;top:50%;left:-16rpx;background:#fff;border-radius:50%;}
+.coupon_con .coupon_list .right_i{left: auto;right: -14rpx;border:1px solid #e41b45;border-right:none;}
+.coupon_con .coupon_list .img{width: 180rpx;position: absolute;right: 20rpx;top: 20rpx;}
+
+
+.coupon_con .coupon_list2{background: #999;}
+.coupon_con .coupon_list2 .coupon_text{color: #999;}
+.coupon_con .coupon_list2 .coupon_text .par{color: #999;}
+.coupon_con .coupon_list2 .right_i{border-color: #999;}

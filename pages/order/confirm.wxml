@@ -1,0 +1,85 @@
+<view class="order_con">
+    <navigator url="{{detail.address.aid ? '/pages/member/address?isue=1' : '/pages/member/add_address?isue=1'}}" class="addr_content">
+        <view class="name_con clearfix" wx:if="{{detail.address.aid}}">
+            <view class="name fl">{{detail.address.consignee}}</view>
+            <view class="phone fl">{{detail.address.mobile}}</view>
+            <view wx:if="{{detail.address.is_default == 1}}" class="default fl">默认</view>
+        </view>
+        <view class="addrtext">
+            <i class="icon iconfont fl icon-e6c7"></i>
+            <span class="textover2">{{detail.address.aid ? detail.address.province+detail.address.city+detail.address.area+detail.address.address : '请添加收货地址吧'}}</span>
+        </view>
+        <i class="arrow iconfont icon-arrow"></i>
+    </navigator>
+    <view class="list_con">
+        <navigator url="/pages/goods/detail?gsn={{item.gsn}}" class="list clearfix" wx:for="{{detail.goods}}">
+            <view class="img fl"><image src="{{detail.img_url+item.goods_thumb}}"/></view>
+            <view class="info">
+                <view class="title textover">{{item.goods_title}}</view>
+                <view class="clearfix">
+                    <view class="num fr">× {{item.quantity}}</view>
+                    <view class="spec textover">{{item.specification}}</view>
+                </view>
+                <view class="price_con clearfix">
+                    <view class="price textover">￥ {{item.price_sale}} {{item.price_tax != 0 ? "(含税 : "+item.price_tax+")" : ""}}</view>
+                </view>
+            </view>
+        </navigator>
+    </view>
+    <view class="list_con item_con">
+        <view class="list">
+            <view class="left fl">备注</view>
+            <view class="right textover"><input type="text" placeholder="不接受制定快递，特殊要求请联系卖家" value="{{remarks}}" bindblur="setRemarks"/></view>
+        </view>
+    </view>
+    <view class="list_con item_con">
+        <view class="list" bindtap="mask">
+            <view class="left fl">优惠券</view>
+            <view class="right textover">
+                <span wx:if="{{detail.coupon == ''}}">无可用优惠券</span>
+                <span wx:if="{{discount}}">- ￥{{discount}}</span>
+                <i wx:if="{{detail.coupon != '' && !discount}}" class="iconfont icon-arrow"></i>
+            </view>
+        </view>
+    </view>
+    <view class="list_con item_con">
+        <view class="list">
+            <view class="left fl">宝贝总价</view>
+            <view class="right textover">￥ {{detail.pure_sum}}</view>
+        </view>
+        <view class="list">
+            <view class="left fl">运费</view>
+            <view class="right textover"> ￥ {{detail.freight_sum}}</view>
+        </view>
+        <view class="list">
+            <view class="left fl">税费</view>
+            <view class="right textover"> ￥ {{detail.tax_sum}}</view>
+        </view>
+    </view>
+    <view class="order_foot">
+        <view class="btn fr" bindtap="createOrder">提交订单</view>
+        <view class="price_con textover">
+            <view wx:if="detail">合计: ￥ {{detail.all_sum-discount}}</view>
+        </view>
+    </view>
+    <view wx:if="{{isshow}}" class="mask" bindtap="mask">
+        <view class="confirm_content" wx:if="{{visable}}" catchtap>
+            <i class="iconfont close icon-close1" bindtap="mask"></i>
+            <scroll-view  scroll-y class="content_scroll">
+                <view class="coupon_list" wx:for="{{detail.coupon}}" data-key="{{index}}" bindtap="selectCoupon">
+                    <i class="left_i"></i>
+                    <i class="right_i"></i>
+                    <view class="coupon_text clearfix">
+                        <view class="par fl">￥{{item.coupon_discount}}</view>
+                        <view class="copy">
+                            <view class="condition textover">满{{item.coupon_satisfy}}即可使用</view>
+                            <view class="time">有效期{{item.coupon_start}}</view>
+                            <view class="time">至{{item.coupon_end}}</view>
+                        </view>
+                    </view>
+                </view>
+            </scroll-view>
+            <view class="coupon_cancel" bindtap="cancelCoupon">不使用优惠券</view>
+        </view>
+    </view>
+</view>

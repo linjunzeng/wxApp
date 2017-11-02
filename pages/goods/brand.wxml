@@ -1,0 +1,17 @@
+<scroll-view scroll-x scroll-with-animation class="menu_con">
+    <navigator class="menu {{cid == item.cid ? 'active' : ''}}" url="/pages/goods/brand?cid={{item.cid}}" open-type='redirect' wx:for="{{menuList}}">{{item.cate_title}}</navigator>
+</scroll-view>
+<view class="brand_con" wx:if="{{brandList.length != 0 }}">
+    <navigator class="list" url="/pages/goods/list?brand={{item.bid}}" wx:for="{{brandList}}">
+        <view class='img'><image mode="aspectFit" src="{{img_url+item.brand_thumb}}" /></view>
+        <view class="name textover">{{item.brand_name}}</view>
+    </navigator>
+    <view class="list_loading" wx:if="{{isload}}"><image class="load" mode="widthFix" src="/static/images/loading.gif">加载中</image></view>
+    <view class="list_loading" wx:if="{{error}}" bindtap="getData">加载失败,点击重新加载</view>
+    <view class="list_loading" wx:if="{{brandList.length > 12 && nomore}}">我是有底线的</view>
+</view>
+
+<view wx:if="{{brandList.length == 0 && !isload}}" class="list_none">
+        <i class="iconfont icon icon-wunai"></i>
+        <view class="text">搜索不到产品</view>
+    </view>

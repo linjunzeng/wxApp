@@ -1,0 +1,22 @@
+/* pages/order/logistics_detail.wxss */
+page{background: #f1f1f1;}
+.list_con{background: #fff;}
+.list_con .list{padding: 32rpx 24rpx;border-bottom: solid 1px #f0f0f0;box-sizing: border-box;}
+.list_con .list .img{width: 165rpx;height: 165rpx;position: relative;overflow: hidden;}
+.list_con .list .img img{margin: auto;max-width: 100%;max-height: 100%;position: absolute;left: 0;top: 0;right: 0;bottom: 0;}
+.list_con .list .info{padding-left: 20rpx;line-height: 39rpx;overflow: hidden;}
+.list_con .list .spec{height: 40rpx;}
+.list_con .list .spec,.order_con .list_con .list .num{color: #a6a6a6;}
+.list_con .list .price{margin-top: 8rpx;text-align: right;color: #e41b45;}
+
+.express_info{margin-top: 20rpx;background: #fff;}
+.express_info .title{padding: 0 20rpx;line-height: 80rpx;border-bottom: solid 1px #f1f1f1;}
+.express_info .info{padding: 39rpx 20rpx 0 50rpx;}
+.express_info .info .item{padding: 1px 0 39rpx 30rpx;line-height: 50rpx;border-left: solid 1px #959595;color: #666;position: relative;}
+.express_info .info .item .text{margin-top: -15rpx}
+.express_info .info .item .time{font-size: 24rpx;}
+
+.express_info .info .item:before{content: '';width: 18rpx;height: 18rpx;border-radius: 50%;background: #959595;position: absolute;left: -9rpx;top: 0;}
+.express_info .info .item:first-child:before{width: 24rpx;height: 24rpx;background: #e41b45;left: -14rpx;}
+.express_info .info .item:first-child{color: #e41b45;}
+.express_info .info .item:last-child{border: 0 none;}

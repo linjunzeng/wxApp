@@ -1,0 +1,4 @@
+/* pages/order/confirm.wxss */
+@import '/static/css/order.wxss';
+page{background: #f1f1f1;}
+.order_con .list .price del{margin-left: 8rpx;font-size: 24rpx;text-decoration: line-through;color: #666;}

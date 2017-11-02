@@ -1,0 +1,52 @@
+<view class="content">
+    <!-- 问答列表 -->
+	<view class="list_con" wx:if="{{type == 1 || type == 2}}">
+		<view wx:for="{{advisory[mold]}}">
+			<image mode="widthFix"  wx:if="{{item.imgsrc}}" src="{{img_url+item.imgsrc}}"/>
+		    <view class="list_type clearfix" >
+		        <i class="iconfont {{item.icon}}"></i>
+		        <span>{{item.type}}</span>
+		        <i class="iconfont right fr icon-arrow"></i>
+		    </view>
+		    <ul class="list_question clearfix {{item.isrow == 'isrow' ? 'isrow': ''}}">
+	            <navigator url="./detail?type=1&info={{mold+','+item.key+','+index}}" class="list fl textover" wx:for="{{item.list}}" wx:for-item="list">{{list.title}}</navigator>
+		    </ul>
+	    </view>
+	</view>
+    <!-- 咨询与客服 -->
+	<view class="foot_fixed clearfix" wx:if="{{mold != 'mayi'}}">
+        <navigator url="./detail?type=2"  class="list fl">
+            <i class="iconfont icon-e6d4"></i>
+            <span>在线客服</span>
+        </navigator>
+        <navigator url="./detail?type=3"  class="list fl">
+            <i class="iconfont icon-e6f9"></i>
+            <span>咨询电话</span>
+        </navigator>
+    </view>
+    <!-- 关于我们 -->
+    <view class="about_con" wx:if="{{type == 3}}">
+	    <view class="img"><image mode="widthFix" src="../../static/images/logo.png"/></view>
+	    <view class="about_list">
+	        <navigator url="./detail?type=4" class="clearfix">
+	            <i class="iconfont icon_2 fr icon-arrow"></i>
+	            <i class="iconfont icon_1 fl icon-e6e5"></i>
+	            <span>公司简介</span>
+	        </navigator>
+	        <navigator url="./detail?type=5"  class="clearfix">
+	            <i class="iconfont icon_2 fr icon-arrow"></i>
+	            <i class="iconfont icon_1 fl icon-e6f9"></i>
+	            <span>联系方式</span>
+	        </navigator>
+	        <navigator url="./detail?type=6"  class="clearfix">
+	            <i class="iconfont icon_2 fr icon-arrow"></i>
+	            <i class="iconfont icon_1 fl icon-e6d7"></i>
+	            <span>合作伙伴</span>
+	        </navigator>
+	    </view>
+	    <view class="about_text">
+	        <view>加盟热线 : 186-6586-3909</view>
+            <view>© 深圳市微思达计算机软硬件开发有限公司</view>
+	    </view>
+	</view>
+</view>

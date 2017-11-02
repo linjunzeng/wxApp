@@ -1,0 +1,17 @@
+@import '/static/css/detail.wxss';
+
+/* 底部按钮 */
+.detail_con .detail_foot{width: 100%;height: 99rpx;background: #fff;position: fixed;left: 0;bottom: 0;overflow: hidden;z-index: 9999;}
+.detail_con .detail_foot .icon{width: 25%;height: 100%;border-top: solid 1px #f1f1f1;border-right: solid 1px #f1f1f1;text-align: center;overflow: hidden;}
+.detail_con .detail_foot .icon i{padding: 26rpx 0;font-size: 45rpx;display: block;}
+.detail_con .detail_foot .icon .like{color: #e41b45;}
+.detail_con .detail_foot .btn{padding: 33rpx 0;width: 100%;font-size: 27rpx;border: 0 none;border-top: solid 1px #f1f1f1;box-sizing: border-box;}
+.detail_con .detail_foot .buy{border-top: 0 none;background: #e41b45;color: #fff;}
+
+/* 规格选择 */
+.detail_con .number_con{padding: 20rpx 0;}
+.detail_con .number_con .left{margin-right: 20rpx;line-height: 50rpx;}
+.detail_con .number_con .number{overflow: hidden;}
+.detail_con .number_con .number .icon{padding: 9rpx 0;width: 68rpx;border: solid 1px #f0f0f0;text-align: center;box-sizing: border-box;}
+.detail_con .number_con .number .active{background: none;color: #ccc;}
+.detail_con .number_con .number .text{width: 99rpx;height: 58rpx;line-height: 58rpx;border: solid 1px #f0f0f0;border-left: 0 none;border-right: 0 none;text-align: center;box-sizing: border-box;overflow: hidden}

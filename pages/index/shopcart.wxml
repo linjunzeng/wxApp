@@ -1,0 +1,68 @@
+<view class="content cart_con">
+    <view wx:if="{{cartlist.length == 0}}" class="cart_none_con">
+    	<view class="list_none">
+    		<i class="iconfont icon icon-wunai"></i>
+    		<view class="text">购物车怎么能说空就空了</view>
+    		<navigator class="btn" to="/index" replace>买买买</navigator>
+    	</view>
+    </view>
+	<view wx:else class="list_con">
+        <view class="list head clearfix">
+            <view class="left fl" bindtap="checkAll">
+                <i class="iconfont icon icon-checkbox {{checkall ? ' active' : ''}}"></i>
+            </view>
+            <i class="iconfont icon-icon_delete remove fr" data-key="all" bindtap="delCart"></i>
+        </view>
+		<view class="list clearfix" wx:for="{{cartlist}}">
+            <view class="left fl" data-key="{{index}}" bindtap="checkSon">
+                <i class="iconfont icon icon-checkbox {{item.check ? 'active' : ''}}"></i>
+            </view>
+            <view class="info clearfix {{index == cartlist.length ? 'lastinfo':''}}">
+                <navigator url="/pages/goods/detail?gsn={{item.gsn}}" class="img fl"><image src="{{img_url+item.goods_thumb}}" /></navigator>
+                <view class="detail">
+                    <view class="name_con clearfix">
+                        <view class="del fr" data-key="{{index}}" bindtap="delCart">删除</view>
+                        <navigator  url="/pages/goods/detail?gsn={{item.gsn}}" class="name textover">{{item.goods_title}}</navigator>
+                    </view>
+                    <view class="spec">{{item.specification}}  (库存：{{item.store_total}})</view>
+                    <view class="price_con clearfix">
+                        <view class="number fr">
+                            <view class="icon fl {{item.quantity-0 <= 1 ? 'active' : ''}}" data-key="{{index}}" data-type="-1" bindtap="changeNum">-</view>
+                            <view class="text fl"><input type="text" value="{{item.quantity}}" data-key="{{index}}" data-type="0" bindblur="changeNum"/></view>
+                            <view class="icon fl {{item.quantity-0 >= item.store_total-0 ? 'active' : ''}}" data-key="{{index}}" data-type="1" bindtap="changeNum">+</view>
+                        </view>
+                        <view class="price textover">¥{{item.price_sale}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <!--失效商品  -->
+        <view class="overdue_con" wx:if="{{overdue.length != 0}}">
+            <view class="list clearfix" wx:for="{{overdue}}">
+                <view class="left fl">
+                    <view class="overdue">失效</view>
+                </view>
+                <view class="info clearfix {{index == overdue.length ? 'lastinfo':''}}">
+                    <navigator url="/pages/goods/detail?gsn={{item.gsn}}" class="img fl"><image src="{{img_url+item.goods_thumb}}" /></navigator>
+                    <view class="detail">
+                        <view class="name_con clearfix">
+                            <view class="del fr" data-key="{{index}}" bindtap="delCart">删除</view>
+                            <navigator  url="/pages/goods/detail?gsn={{item.gsn}}" class="name textover">{{item.goods_title}}</navigator>
+                        </view>
+                        <view class="spec">{{item.specification}}  (库存：{{item.store_total}})</view>
+                    </view>
+                </view>
+            </view>
+            <view class="clearbtn" bindtap="clearGoods">清空失效宝贝</view>
+        </view>
+        <view class="list head foot clearfix">
+            <view class="left fl" bindtap="checkAll">
+                <i class="iconfont icon icon-checkbox {{checkall ? ' active' : ''}}"></i>
+            </view>
+            <view class="right clearfix">
+                <view class="settlement fr" bindtap="cartConfirm">结算</view>
+                <view class="text">共<span> {{quantity}} </span>件  合计: <span>￥ {{addprcie}}</span></view>
+            </view>
+        </view>
+	</view>
+</view>

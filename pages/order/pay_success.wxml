@@ -1,0 +1,19 @@
+<view class="pay_success">
+    <view class="img"><image mode="widthFix" src="../../static/images/order/pay_success.png"/></view>
+    <view class="info">
+        <view>订单编号 : {{payinfo.order_sn}}</view>
+        <view>支付金额 : <span>￥ {{payinfo.order_sum}}</span></view>
+    </view>
+    <view class="btn_con">
+        <navigator url="/pages/index/index" class="btn fl" open-type="switchTab">继续购物</navigator>
+        <block wx:if="type_id == 1">
+            <navigator wx:if="{{payinfo.activity_type == 3}}" url="/pages/regiment/success?order_sn={{payinfo.order_sn}}" class="btn fl" open-type="redirect">团购详情</navigator>
+            <navigator wx:else url="/pages/order/detail?order_sn={{payinfo.order_sn}}" class="btn fl" open-type="redirect">查看订单</navigator>
+            
+        </block>
+        <navigator wx:if="{{type_id == 2}}" url="/pages/index/member" class="btn fl" open-type="switchTab">个人中心</navigator>
+    </view>
+
+       
+        
+</view>

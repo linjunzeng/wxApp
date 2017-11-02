@@ -1,0 +1,31 @@
+<view class="order_con">
+    <view class="list_con item_con">
+        <view class="list">
+            <view class="left fl">订单编号</view>
+            <view class="right textover">{{order_sn}}</view>
+        </view>
+        <view class="list_con_1">
+            <view class="list">
+                <view class="left fl">商品合计</view>
+                <view class="right textover">￥ {{orderinfo.pure_sum}}</view>
+            </view>
+            <view class="list">
+                <view class="left fl">优惠价抵扣</view>
+                <view class="right textover">￥ {{orderinfo.order_coupon}}</view>
+            </view>
+            <view class="list">
+                <view class="left fl">税费</view>
+                <view class="right textover">￥ {{orderinfo.order_tax}}</view>
+            </view>
+            <view class="list">
+                <view class="left fl">邮费</view>
+                <view class="right textover">￥ {{orderinfo.order_freight}}</view>
+            </view>
+        </view>
+        <view class="list">
+            <view class="left fl">订单需支付</view>
+            <view class="right textover red">￥ {{orderinfo.order_sum}}</view>
+        </view>
+    </view>
+    <button class="pay_btn" type="primary" bindtap="paySubmit">微信支付</button>
+</view>

@@ -1,0 +1,47 @@
+<view class="content member_con" wx:if="{{memberdata.length != 0}}">
+	<view wx:for="{{memberdata}}">
+		<!-- 头部信息 -->
+		<view class="member_item header" wx:if="{{item.type == 10}}">
+			<view class="member_bg" style="background-image: url(/static/images/member/bg.jpg)">
+				<view class="level">
+					<image src="/static/images/member/star.png" mode="widthFix"/>
+					<span>{{item.user.grade_show}}</span>
+				</view>
+				<navigator url="/pages/member/information" class="img"><image src="{{item.user.avatar}}" mode="widthFix" /></navigator>
+				<view class="name">{{item.user.nickname}}</view>
+			</view>
+			<view class="list_con clearfix">
+				<view data-url="{{list.url}}" bindtap="navgate" class="list fl clearfix" wx:for="{{item.content}}" wx:for-item="list">
+					<i class="iconfont {{list.icon}}" style="color:{{list.color}}"></i>
+					<view class="right">
+						<view class="name">{{list.title}}</view>
+						<view class="num textover">{{list.counts}}</view>
+					</view>
+				</view>
+			</view>
+		</view>
+		<!-- 订单 蚂蚁服务   12蚂蚁暂时不上线 -->
+		<view class="member_item order" wx:if="{{item.type == 11}}">
+			<view data-url="{{item.url || ''}}" bindtap="navgate" class="item clearfix">
+				<i class="iconfont icon_2 fr icon-arrow"></i>
+				<i class="iconfont icon_1 fl {{item.icon}}"></i>
+				<view class="textover">{{item.title}}</view>
+			</view>
+			<view class="list_con clearfix">
+				<view data-url="{{list.url}}" bindtap="navgate" class="list fl" wx:for="{{item.content}}" wx:for-item="list">
+					<i class="iconfont {{list.icon}}"></i>
+					<view>{{list.title}}</view>
+					<span class="counts" wx:if="{{list.counts}}">{{list.counts}}</span>
+				</view>
+			</view>
+		</view>
+		<!-- 其他 -->
+		<view class="member_item order" wx:if="{{item.type == '13'}}">
+			<view data-url="{{list.url}}" bindtap="navgate" class="item clearfix" wx:if="{{list}}" wx:for="{{item.content}}" wx:for-item="list">
+				<i class="iconfont icon_2 fr icon-arrow"></i>
+				<i class="iconfont icon_1 fl {{list.icon}}"></i>
+				<view class="textover">{{list.title}}</view>
+			</view>
+		</view>
+	</view>
+</view>

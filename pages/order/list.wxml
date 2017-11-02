@@ -1,0 +1,64 @@
+<view class="content order_list">
+    <view class="order_nav">
+        <view class="clearfix">
+            <navigator class="fl {{status == 0 ? 'active':''}}" url="./list?status=0" open-type="redirect">全部</navigator>
+            <navigator class="fl {{status == 10 ? 'active':''}}" url="./list?status=10" open-type="redirect">待付款</navigator>
+            <navigator class="fl {{status == 20 ? 'active':''}}" url="./list?status=20" open-type="redirect">待发货</navigator>
+            <navigator class="fl {{status == 30 ? 'active':''}}" url="./list?status=30" open-type="redirect">待收货</navigator>
+            <navigator class="fl {{status == 40 ? 'active':''}}" url="./list?status=40" open-type="redirect">已完成</navigator>
+        </view>
+    </view>
+    <view wx:if="{{order_list.length != 0}}">
+        <navigator url="{{item.order_status != 18 ? './detail?order_sn='+item.order_sn : '/pages/regiment/success?order_sn='+item.order_sn}}" class="list" wx:for="{{order_list}}">
+            <view class="header clearfix">
+                <view class="status fr">{{statusArr[item.order_status]}}</view>
+                <i class="icon iconfont fl icon-e6c8"></i>
+                <view class="text textover">{{item.order_sn}}</view>
+            </view>
+            <view class="info clearfix" wx:for="{{item.goods}}" wx:for-item="list">
+                <view class="img fl"><image src="{{img_url+list.goods_thumb}}"/></view>
+                <view class="right">
+                    <view class="title textover">{{list.goods_title}}</view>
+                    <view class="spec">{{list.spec_title}}</view>
+                    <view class="num">× {{list.quantity}}</view>
+                    <view class="price">￥ {{list.price_sale}}</view>
+                </view>
+            </view>
+            <view class="foot clearfix">
+                <view class="add fl">合计：￥{{item.order_sum}}</view>
+                <view class="btn_con clearfix">
+                    <navigator catchtap wx:if="{{item.order_status == 10}}" url="/pages/order/pay?order_sn={{item.order_sn}}" class="btn fr">立即支付</navigator>
+                    <view wx:if="{{item.order_status == 10}}" class="btn fr" data-ordersn="{{item.order_sn}}" data-key="{{index}}" catchtap="modelShow">取消订单</view>
+                    <navigator catchtap wx:if="{{item.order_status == 18}}" url="/pages/regiment/success?order_sn={{item.order_sn}}" class="btn fr">拼团详情</navigator>
+                    <view wx:if="{{item.order_status == 30}}" class="btn fr" data-ordersn="{{item.order_sn}}" data-key="{{index}}" catchtap="receipt">确认收货</view>
+                    <navigator catchtap wx:if="{{item.order_status == 30}}" url="/pages/order/logistical?order_sn={{item.order_sn}}" class="btn fr">物流查询</navigator>
+                    <view wx:if="{{item.order_status == 30 && item.countdown > 0}}" class="btn fr" data-ordersn="{{item.order_sn}}" catchtap="delay">延长收货</view>
+                </view>
+            </view>
+        </navigator>
+    </view>
+    <view wx:if="{{order_list.length == 0 && !isload}}" class="list_none">
+        <i class="iconfont icon icon-wunai"></i>
+        <view class="text">搜索不到产品</view>
+    </view>
+    <view class="list_loading" wx:if="{{isload && order_list.length != 0}}"><image mode="widthFix" class="load" src="../../../static/images/loading.gif"/>加载中</view>
+    <view class="list_loading" wx:if="{{error}}" bindtap="getOrder">加载失败,点击重新加载</view>
+    <view class="list_loading" wx:if="{{nomore && order_list.length > 2}}">这是底线</view>
+
+    <!-- 取消订单弹窗 -->
+    <view class="order_mask" wx:if="{{show}}" bindtap="closeModel"></view>
+    <view class="order_slide" wx:if="{{show}}">
+        <view class="title">请选择取消订单的理由</view>
+        <view class="item_con" wx:if="{{remarkList.length != 0}}">
+            <view class="item clearfix" wx:for="{{remarkList}}" data-key="{{index}}" bindtap="check">
+                <i class="iconfont fr icon-checkbox {{remark == index ? 'active':''}}"></i>
+                <view class="text textover">{{item}}</view>
+            </view>
+        </view>
+        <view class="title btn_con clearfix">
+            <view class="btn fl" bindtap="closeModel">取消</view>
+            <view class="btn fl" bindtap="cancel">确定</view>
+        </view>
+    </view>
+    <!-- 取消订单弹窗结束 -->
+</view>

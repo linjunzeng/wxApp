@@ -1,0 +1,25 @@
+/**app.wxss**/
+@import '/static/css/iconfont.wxss';
+page{font-size: 28rpx;color: #333;}
+.navigator-hover {background-color: inherit; opacity: 1;color: inherit;}
+image{width: 100%;height: 100%;vertical-align: middle;}
+ul,li{display: inline-block;}
+
+.fl{float: left;}
+.fr{float: right;}
+
+.clearfix{display:  block;}
+.clearfix:after {content: ".";display: block;clear: both;visibility: hidden;line-height: 0;height: 0;font-size:0;}
+
+.textover{white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+.textover2{-webkit-box-orient: vertical;-webkit-line-clamp: 2;display: -webkit-box;overflow:hidden;}
+.textover3{-webkit-box-orient: vertical;-webkit-line-clamp: 3;display: -webkit-box;overflow:hidden;}
+
+/* 列表加载样式 */
+.list_none{margin: auto;width: 100%;height: 200rpx;text-align: center;position: absolute;top: 0;bottom: 0;}
+.list_none .icon{font-size: 99rpx;}
+.list_none .text{margin-top: 20rpx;line-height: 80rpx;}
+.list_none .btn{width: 159rpx;height: 60rpx;line-height: 60rpx;border-radius: 8rpx;text-align: center;background: #e41b45;color: #fff;display: inline-block;}
+
+.list_loading{width: 100%;height: 80rpx;line-height: 80rpx;text-align: center;display: block;}
+.list_loading .load{margin-right: 20rpx;width: 36rpx}

@@ -1,0 +1,134 @@
+<!--pages/goods/detail.wxml-->
+<import src="../../wxParse/wxParse.wxml"/>
+<view class="detail_con regiment_con">
+    <swiper indicator-dots="true" autoplay="true" interval="5000" duration="300" style="height: {{windosH}}px">
+        <block wx:for="{{detailData.picture}}">
+            <swiper-item>
+                <image src="{{detailData.img_url+item.image}}" class="slide-image"  mode="aspectFill"/>
+            </swiper-item>
+        </block>
+    </swiper>
+    <!-- 商品价格 --> 
+    <view class="info_con price_con">
+        <view class="price_1">
+            <span>团购价：</span>
+            <span class="icon">￥</span>
+            <span class="market">{{detailData.price_group}}</span>
+            <del class="original">￥{{detailData.price_market}}</del>
+        </view>
+    </view>
+
+    <!-- 商品信息 -->
+    <view class="info_con">
+        <view class="title textover2">{{detailData.goods_title}}</view>
+        <view class="title brief textover2" wx:if="{{detailData.goods_brief}}">{{detailData.goods_brief}}</view>
+        <view class="type clearfix">
+            <li class="fl">
+                <image wx:if="{{detailData.country_thumb}}" class="icon" src="{{detailData.img_url}}{{detailData.country_thumb}}"/>
+                <span>{{detailData.country_name}}</span>
+            </li>
+            <li class="fl">
+                <i class="icon iconfont icon-kuajingshangpin"></i>
+                <span>跨境商品</span>
+            </li>
+            <li class="fl">
+                <i class="icon iconfont icon-leixing"></i>
+                <span>{{typeArr[detailData.goods_pro-1]}}</span>
+            </li>
+        </view>
+        <view class="regiment_tisp">该商品所有用户均可开团，仅限未购物的新用户参团，开团后快邀请新朋友参团吧！<span>( {{detailData.regiment.num}}人团 每人限购一件  )</span>
+        </view>
+    </view>
+
+    <!-- 团购列表 说明 -->
+    <navigator url="./explain" class="info_con clearfix">
+        <span class="fr regiment_font">好友参团 人满发货 不满退款 <i class="iconfont icon-arrow"></i></span>
+        <span class="fl">拼团玩法</span>
+    </navigator>
+    <view class="info_regiment" wx:if="{{regiment_arr}}">
+        <view class="header">以下小伙伴正在发起团购, 您可以直接参与</view>
+        <navigator wx:if="{{item.countdown > 0}}" url="./join?lid={{item.lid}}&rid={{rid}}" class="list_con clearfix" wx:for="{{detailData.regiment_list}}">
+            <view class="btn fr">去参团</view>
+            <view class="img fl"><image src="{{item.avatar}}"/></view>
+            <view class="center">
+                <view class="name">{{item.nickname}}</view>
+                <view class="time">还差{{item.has_num}}人, 剩余 {{timeArr[index]}}</view>
+            </view>
+        </navigator>
+    </view>
+
+    <view class="info_con">
+        <view class="item clearfix">
+            <view class="left fl">运费：</view>
+            <view class="right textover">{{detailData.express_price.type +' '+ detailData.express_price.value }}</view>
+        </view>
+        <view class="item clearfix">
+            <view class="left fl">税费：</view>
+            <view class="right textover">{{detailData.price_tax != '0.00' ? detailData.price_tax : '本商品已包税，无需再额外缴纳税费。'}}            </view>
+        </view>
+        <view class="item clearfix">
+            <view class="left fl">说明：</view>
+            <view class="right textover" data-type="1" bindtap="mask">点击查看 <i class="iconfont icon-tishi"></i></view>
+        </view>
+    </view>
+    <!-- 详情 -->
+     <view class="detail_info">
+        <view class="detail"><i class="iconfont icon-e6e5"></i><span>商品详情</span></view>
+        <template is="wxParse" data="{{wxParseData:goods_detail.nodes}}"/>
+    </view> 
+    <!-- 底部按钮 -->
+    <view class="detail_foot clearfix">
+        <navigator url="/pages/index/index" open-type="switchTab" class="icon fl"><i class="iconfont icon-shouye"></i></navigator>
+        <navigator url="/pages/index/shopcart" open-type="switchTab" class="icon fl"><i class="iconfont icon-gouwuche1"></i></navigator>
+        <view class="textover clearfix">
+            <view class="icon fl btn buy"  data-type="2" bindtap="mask">立即开团</view>
+        </view>
+    </view>   
+    <!-- 弹层 -->
+    <view wx:if="{{isshow}}" class="detail_mask"  data-type="2" catchtap="mask">
+        <view class="mask_content" wx:if="{{visable}}" catchtap>
+            <i class="iconfont close icon-close1" data-type="2" catchtap="mask"></i>
+            <view wx:if="{{type == 1}}" class="content explain">
+                <view class="title">商品说明</view>
+                <view class="item clearfix">
+                    <view class="left fl">税费说明 : </view>
+                    <view class="right">据国家政策规定，本商品适用于“跨境综合税”，税率为11.9%，实际结算税费请以提交订单时的应付总额明细为准。</view>
+                </view>
+                <view class="item clearfix">
+                    <view class="left fl">假一赔十 : </view>
+                    <view class="right">友品集全球购每一件商品都通过严苛的品质把关，保障正品，保障品质。特推出“假一赔十”的正品保障政策，杜绝一切假货，让您无忧购物。</view>
+                </view>
+                <view class="item clearfix">
+                    <view class="left fl">退<text decode="{{true}}">&emsp;&emsp;</text>货 : </view>
+                    <view class="right">本商品不支持7天无理由退货</view>
+                </view>
+                <view class="item clearfix">
+                    <view class="left fl">发<text decode="{{true}}">&emsp;&emsp;</text>货 : </view>
+                    <view class="right">自营{{typeArr[detailData.goods_pro-1]}}仓库发货</view>
+                </view>
+            </view>
+             <view wx:if="{{type == 2}}" class="content goods">
+                 <view class="info">
+                    <view class="img fl"><image src="{{detailData.img_url}}{{detailData.goods_thumb}}"></image></view>
+                    <view class="right">
+                        <view class="price">￥{{price_group || detailData.price_section}}</view>
+                        <view class="stock">库存：{{store}}</view>
+                        <view wx:if="{{detailData.spec_type > 0}}">已选择： {{specStr || '未选择'}}</view>
+                        <view wx:else>已选择： 默认</view>
+                    </view>
+                </view>
+                <view class="item" wx:if="{{detailData.spec_type != 0}}">
+                    <view wx:for="{{detailData.specs.items_show}}" wx:for-index="key">
+                        <view class="name">{{item.name_name}}</view>
+                        <ul class="clearfix">
+                            <li class="" class="spce fl {{iids[key] == list.iid ? 'active': ''}}" wx:for="{{item.items}}" wx:for-item="list" data-key="{{key}}" data-name="{{list.item_name}}" data-iid="{{list.iid}}" bindtap="checkSpec">{{list.item_name}}</li>
+                        </ul>
+                    </view>
+                </view>
+                <view class="btn_con clearfix">
+                    <view class="btn buy fl" bindtap="buyNow">立即开团</view>
+                </view> 
+            </view> 
+        </view>
+    </view>
+</view>

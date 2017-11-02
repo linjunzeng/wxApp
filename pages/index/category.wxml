@@ -1,0 +1,37 @@
+<view class="category_con">
+    <view class='search_con'><navigator url="/pages/goods/search" class="search">搜索你想要的商品</navigator></view>
+    <view class="type_con clearfix">
+        <ul class="first_con fl" wx:if="{{firstList.length}}">
+            <li class="{{firstcid == item.cid ? 'active':''}}" wx:for="{{firstList}}" data-cid="{{item.cid}}" bindtap="getCategory">{{item.cate_title}}</li>
+        </ul>
+        <view class="right">
+            <navigator url="{{item.content_url}}" wx:for="{{seconds.adv.son}}">
+                <image mode="widthFix" src="{{item.content_image}}"></image>
+            </navigator>
+            <view wx:for="{{seconds.cate}}">
+                <navigator href="/pages/goods/list?cate_idc={{item.cid}}" class="second_name textover">
+                    <span>{{item.cate_title}}</span>
+                </navigator>
+                <ul class="three_con clearfix" wx:if="{{item.list.length}}">
+                    <navigator url="/pages/goods/list?cate_ids={{list.cid}}" class="fl" wx:for="{{item.list}}" wx:for-item="list">
+                        <view class="img"><image src="{{img_url+list.cate_thumb}}"></image></view>
+                        <view class="three_name textover">{{list.cate_title}}</view>
+                    </navigator>
+                </ul>
+            </view>
+            <view wx:if="seconds.brand.length">
+                <view class="brand_name textover">热门品牌 </view>
+                <ul class="three_con clearfix">
+                    <navigator url="/pages/goods/list?brand={{item.bid}}" tag="li" class="fl" wx:if="key < 8"  wx:for="{{seconds.brand}}">
+                        <view class="img"><image src="{{img_url+item.brand_thumb}}"></image></view>
+                        <view class="three_name textover">{{item.brand_name}}</view>
+                    </navigator>
+                    <navigator url="/pages/goods/brand?cid={{firstcid}}" class="fl" wx:if="{{seconds.brand.length >= 8}}">
+                        <view class="img"><i class="iconfont icon-gengduo-"></i></view>
+                        <view class="three_name textover">更多</view>
+                    </navigator>
+                </ul>
+            </view>
+        </view>
+    </view>
+</view>

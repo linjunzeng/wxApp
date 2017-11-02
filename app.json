@@ -1,0 +1,80 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/index/category",
+        "pages/index/shopcart",
+        "pages/index/member",
+        "pages/goods/detail",
+        "pages/goods/search",
+        "pages/goods/list",
+        "pages/goods/brand",
+        "pages/goods/spike",
+        "pages/goods/spike_detail",
+        "pages/partition/country",
+        "pages/partition/new",
+        "pages/partition/good",
+        "pages/partition/hot",
+        "pages/partition/zone",
+        "pages/regiment/list",
+        "pages/regiment/explain",
+        "pages/regiment/detail",
+        "pages/regiment/join",
+        "pages/regiment/confirm",
+        "pages/regiment/success",
+        "pages/order/confirm",
+        "pages/order/spike_confirm",
+        "pages/order/pay",
+        "pages/order/pay_success",
+        "pages/order/list",
+        "pages/order/detail",
+        "pages/order/logistical",
+        "pages/order/logistics_detail",
+        "pages/order/apply_after_sale",
+        "pages/member/collection",
+        "pages/member/coupon",
+        "pages/member/manual",
+        "pages/member/detail",
+        "pages/member/setting"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "优品集全球购",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "borderStyle": "black",
+        "color": "#999999",
+        "selectedColor": "#e41b45",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "text": "首页",
+                "iconPath": "/static/images/icon/icon_1.png",
+                "selectedIconPath": "/static/images/icon/icon_active_1.png"
+            },
+            {
+                "pagePath": "pages/index/category",
+                "text": "分类",
+                "iconPath": "/static/images/icon/icon_2.png",
+                "selectedIconPath": "/static/images/icon/icon_active_2.png"
+            },
+            {
+                "pagePath": "pages/index/shopcart",
+                "text": "购物车",
+                "iconPath": "/static/images/icon/icon_3.png",
+                "selectedIconPath": "/static/images/icon/icon_active_3.png"
+            },
+            {
+                "pagePath": "pages/index/member",
+                "text": "个人中心",
+                "iconPath": "/static/images/icon/icon_4.png",
+                "selectedIconPath": "/static/images/icon/icon_active_4.png"
+            }
+        ]
+    },
+    "networkTimeout": {
+        "request": 10000
+    },
+    "debug": false
+}

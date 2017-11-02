@@ -1,0 +1,32 @@
+<view class="content coupon_con">
+    <view class="coupon_nav">
+        <ul class="clearfix">
+            <li class="fl {{state == 2 ? 'active': ''}}" data-state="2" bindtap="tourl">未使用</li>
+            <li class="fl {{state == 1 ? 'active': ''}}" data-state="1" bindtap="tourl">已使用</li>
+            <li class="fl {{state == 3 ? 'active': ''}}" data-state="3" bindtap="tourl">已过期</li>
+        </ul>
+    </view>
+    <view class="coupon_box" wx:if="{{couponData.length}}">
+        <view class="coupon_list {{state != 2 ? 'coupon_list2':''}}" wx:for="{{couponData}}">
+            <view class="coupon_text clearfix">
+                <view class="par fl">￥{{item.coupon_discount}}</view>
+                <view class="copy">
+                    <view class="condition textover">满{{item.coupon_satisfy}}即可使用</view>
+                    <view class="time">有效期 {{item.coupon_start}}</view>
+                    <view class="time">至 {{item.coupon_end}}</view>                                                 
+                </view>
+            </view>
+            <i class="left_i"></i>
+            <i class="right_i"></i>
+            <view class="img" wx:if="{{state == 1}}"><image mode="widthFix" src="/static/images/member/coupon/useless.png" /></view>
+            <view class="img" wx:if="{{state == 3}}"><image mode="widthFix" src="/static/images/member/coupon/expired.png" /></view>
+        </view>
+    </view>
+	<view class="cart_none_con" wx:else>
+        <view class="list_none">
+            <i class="iconfont icon icon-wunai"></i>
+            <view class="text">暂无优惠卷</view>
+            <navigator class="btn" to="/index" replace>去看看</navigator>
+        </view>
+    </view>
+</view>

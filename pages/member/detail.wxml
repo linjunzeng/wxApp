@@ -1,0 +1,106 @@
+<import src="../../wxParse/wxParse.wxml"/>
+<view class="content">
+    <!-- 问答详情 -->
+	<view class="datail_quewstion" wx:if="{{type == 1}}">
+        <view class="item clearfix">
+            <view class="question_l fl">问</view>
+            <view class="question_r question_text">{{detail.question}}</view>
+        </view>
+        <view class="item clearfix">
+            <view class="question_l question_bg fl">答</view>
+            <view class="question_r answer_text">
+                <template is="wxParse" data="{{wxParseData:detail_info.nodes}}"/>
+            </view>
+        </view>
+    </view>
+    <!-- 在线咨询 -->
+    <view class="qq_list" wx:if="{{type == 2}}">
+        <view class="title"><i class="iconfont icon-QQ1"></i> QQ客服</view>
+        <ul class="list_ul_1 clearfix">
+            <li class="list_li fl" wx:for="{{advisory.service}}">
+                <image src="{{img_url+item.picture}}" mode="widthFix"/>
+                <view>{{item.name}}</view>
+           </li>
+        </ul>
+        <view class="title"><i class="iconfont icon-weixindenglu"></i> 微信客服</view>
+        <ul class="list_ul_2">
+            <li class="list_li clearfix" wx:for="{{advisory.wechar}}" data-key="{{index}}" bindtap="wechatShow">
+                <i class="icon fr iconfont icon-erweima2"></i>
+                <view class="img fl"><image src="{{img_url+item.picture}}"/></view>
+                <view class="info">
+                    <view class="name">{{item.name}}</view>
+                    <view>{{item.title}}</view>
+                </view>
+            </li>
+        </ul>
+        <view class="tip">
+            <view>专业客服团队咨询：</view>
+            <view>日间在线服务时间：09:00~18：00</view>
+            <view>全线为您服务（订单咨询，产品咨询）</view>
+        </view>
+    </view>
+    <!-- 客服电话 -->
+    <view class="qq_list" wx:if="{{type == 3}}">
+        <view class="phone_list">
+            <view>全国服务热线</view>
+            <view>（转1至市场招商部，转3到电话客服服务部）</view>
+            <view class="text"><i class="iconfont icon-e6f9"></i>4008-039-539 转接3</view>
+            <view>友品集全球购：运维中心服务电话</view>
+            <view class="text"><i class="iconfont icon-e6f9"></i>020-38989219</view>
+            <view>友品集全球购：招商服务热线</view>
+            <view class="text"><i class="iconfont icon-e6f9"></i>18520295275 陈总监</view>
+        </view>
+    </view>
+    <!-- 公司简介 -->
+    <view class="about_list_con datail_con" wx:if="{{type == 4}}">
+        <view class="img_1"><image mode="widthFix" src="../../../static/images//logo2.png"/></view>
+        <view class="text_1">【友品集全球购】是一家专注进口商品的跨境电商O2O平台。海外直采，保税直达，设立海外仓直邮，让消费者足不出户购遍全球！同时，我们在广州南沙、深圳、宁波杭州等地设立多个保税仓，海关监管、政策支持正品洋货目前汇聚100个国家上万商品。欧美、日韩、澳洲等地的热门产品，平台销售和展示涵括了母婴、食品、美妆、日用品、保健品、化妆品、酒类等。</view>
+        <view class="text_1">【友品集全球购】于2015年6月正式上线，以实体店+电商+微商的全能型平台，独特商业模式吸引众多传统企业联手合作，快速占领市场。已经获得上市公司4000万投资。</view>
+        <view class="text_1">【O2O跨境购物新体验】完善的线上线下服务结合，给消费者崭新的购物体验。</view>
+        <view class="text_1">【加盟合作新生态】全新的新零售模式，让加盟商小投入创大回报</view>
+        <view class="text_1">【保税仓直发，海关代言产品】自家保税仓，经海关严格监控，绝无假货信心保证。</view>
+    </view>
+    <!-- 联系方式 -->
+    <view class="about_list_con about_list_con_2 datail_con" wx:if="{{type == 5}}">
+        <view class="img_1"><image mode="widthFix" src="../../../static/images//logo2.png"/></view>
+        <view class="img_3"><image mode="widthFix" src="{{img_url+'image/wap/advisory/about_img_2.png'}}"/></view>
+        <view class="text_3">加入我们开启品质新生活</view>
+        <ul class="list">
+            <li class="clearfix">
+                <i class="iconfont icon fr icon-arrow"></i>
+                <view class="left fl">电话：</view>
+                <view class="center"><navigator url="tel://400-8039539">400-8039539</navigator></view>
+            </li>
+            <li class="clearfix">
+                <view class="left fl">地址：</view>
+                <view class="center">广州市越秀区建设六马路宜安广场15楼11-14（花园酒店旁）</view>
+            </li>
+        </ul>
+    </view>
+    <!-- 合作伙伴 -->
+    <view class="about_list_con datail_con" wx:if="{{type == 6}}">
+        <view class="img_1"><image mode="widthFix" src="../../../static/images//logo2.png"/></view>
+        <view class="text_1">【友品集全球购】2015年8月与《奔跑吧兄弟》《嘀嘀出行》《京东金融》《心怡国际物流》《跨境通》股权代码002640、《怡亚通》股权代码002183达成战略合作伙伴，在渠道拓展已和《中影影院》《广东邮政》《农商银行》《中国退役士兵就业创业服务促进会》《白云机场候机楼》等合作。 强强联合金活医药集团（01110HK）打造跨境电商O2O领先平台。目前已与全国200多个城市达成区域独家合作，现已开业256家线下O2O体验店。</view>
+        <view class="text_2">友品集全球购 战略合作伙伴</view>
+        <view class="img_2"><image mode="widthFix" src="{{img_url+'image/wap/advisory/about_img_1.png'}}"/></view>
+    </view>
+    <!-- 微信弹窗 -->
+    <view class="img_bg" wx:if="{{isshow}}" bindtap="closeModel">
+        <view class="img_con" catchtap>
+            <view class="hearer clearfix">
+                <view class="img fl"><image src="{{img_url+advisory.wechar[wechatkey].picture}}"/></view>
+                <view class="text">
+                    <view class="name">{{advisory.wechar[wechatkey].name}}</view>
+                    <view class="title">{{advisory.wechar[wechatkey].title}}</view>
+                </view>
+            </view>
+            <!-- <view class="tips2">请保存图片，用微信识别二维码</view> -->
+            <view class="erweima_img"><image src="{{img_url+advisory.wechar[wechatkey].erweima}}" mode="widthFix"/></view>
+            <view class="tips">长按扫描二维码</view>
+            <!-- <view class="app_btn clearfix">
+                <a class="app_btn_1 fl" :href="$http.IMG_URL+advisory.wechar[wechatkey].erweima">发送好友</a>
+                <a class="app_btn_2 fl" :href="$http.IMG_URL+advisory.wechar[wechatkey].erweima">保存图片</a>
+            </view> -->
+        </view>
+    </view>
+</view>

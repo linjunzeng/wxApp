@@ -1,0 +1,80 @@
+<view class="search_con">
+    <!--@submit.prevent="setKeyword"   @focus="ShowList"-->
+    <form class="head_con" bindsubmit="searchForm">
+        <i class="iconfont fr icon-sousuo" bindtap="searchForm"></i>
+        <view class="center">
+            <input type="text" name="keyword" placeholder="搜索商品" value="{{keyword}}" bindinput="setKeyword" bindconfirm="searchForm"/>
+        </view>
+    </form>
+    <view class="fixed_height"></view>
+</view>
+<view>
+    <view class="menu_con clearfix">
+        <i class="status iconfont fr {{style == 1 ? 'icon-fenlei1' : 'icon-liebiao'}}" bindtap="changeStyle"></i>
+        <ul class="menu_list clearfix">
+            <li class="fl" data-sort="1" bindtap="changeSort">
+                <span class="{{orderby == 1 ? 'icon top active' : 'icon top'}}"></span>
+                <span class="{{orderby == 2 ? 'icon bottom active' : 'icon bottom'}}"></span>
+                <span class="text">最新</span>
+            </li>
+            <li class="fl" data-sort="3" bindtap="changeSort">
+                <span class="{{orderby == 3 ? 'icon top active' : 'icon top'}}"></span>
+                <span class="{{orderby == 4 ? 'icon bottom active' : 'icon bottom'}}"></span>
+                <span class="text">价格</span>
+            </li>
+            <li class="fl" data-sort="5" bindtap="changeSort">
+                <span class="{{orderby == 5 ? 'icon top active' : 'icon top'}}"></span>
+                <span class="{{orderby == 6 ? 'icon bottom active' : 'icon bottom'}}"></span>
+                <span class="text">销量</span>
+            </li>
+            <li class="fl" style="color: {{screen? '#e41b45' : ''}}" bindtap="chengesScreen">
+                <span class="text">筛选</span>
+            </li>
+        </ul>
+    </view>
+    <view class="{{style == 1 ? 'search_list style': 'search_list'}}">
+        <view wx:if="{{goodslist.length != 0}}" class="clearfix">
+            <navigator class="list clearfix" wx:for="{{goodslist}}" url="./detail?gsn={{item.gsn}}">
+                <view class="img"><image src="{{img_url}}{{item.goods_thumb}}"></image></view>
+                <view class="info">
+                    <view class="name textover2">
+                        <span>{{item.goods_title}}</span>
+                    </view>
+                    <view class="price clearfix">
+                        <view class="price_new fl">￥{{item.price_sale}}</view>
+                        <view class="price_old fl">￥{{item.price_market}}</view>
+                    </view>
+                </view>
+            </navigator>
+        </view>
+        <view wx:if="{{goodslist.length == 0 && !isload}}" class="list_none">
+            <i class="iconfont icon icon-wunai"></i>
+            <view class="text">搜索不到产品</view>
+        </view>
+        <view class="list_loading" wx:if="{{isload}}"><image class="load" mode="widthFix" src="/static/images/loading.gif">加载中</image></view>
+        <view class="list_loading" wx:if="{{error}}" bindtap="getGoodsList">加载失败,点击重新加载</view>
+        <view class="list_loading" wx:if="{{nomore}}">我是有底线的</view>
+    </view>
+    <view class="screen_con" wx:if="{{screen}}" bindtap="chengesScreen">
+        <view class="screen" catchtap>
+            <view class="price clearfix">
+                <view class="text fl">价格区间(元)</view>
+                <view class="item fl"><input type="number" value="{{price_min}}" data-type="min" bindblur="chengePrice"/></view>
+                <view class="item fl">-</view>
+                <view class="item fl"><input type="number" value="{{price_max}}" data-type="max" bindblur="chengePrice"/></view>
+            </view>
+            <view class="screen_item">
+                <view class="head">商品分类</view>
+                <ul class="clearfix">
+                    <li class="fl" wx:for="{{typelist}}" data-cate="cate_idp-{{item.cid}}" bindtap="checkCate">
+                        <span class="{{cate == 'cate_idp-' + item.cid? 'active': ''}}">{{item.cate_title}}</span>
+                    </li>
+                </ul>
+            </view>
+        </view>
+        <view class="screen_btn">
+            <view class="btn fl" catchtap="resetScreen">重置</view>
+            <view class="btn fl submit" catchtap="resetData">确认</view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,3 @@
+/* pages/order/confirm.wxss */
+@import '/static/css/order.wxss';
+page{background: #f1f1f1;}

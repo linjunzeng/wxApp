@@ -1,0 +1,25 @@
+<swiper class="banner_con" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{banner}}">
+        <swiper-item>
+            <image mode="widthFix" src="{{item.content_image}}" class="slide-image" width="355" height="150"/>
+        </swiper-item>
+    </block>
+</swiper>
+<view class="goods_con" wx:if="{{goodsList.length != 0}}">
+    <navigator url="/pages/goods/detail?gsn={{item.gsn}}" class="goods" wx:for="{{goodsList}}" style="{{index < 2 ? 'border: 0 none':''}}">
+        <image wx:if="{{index < 3}}" class="sort_img" mode="widthFix" src="../../static/images/partition/hot_{{index+1}}.png"></image>
+        <view class="img fl"><image mode="aspectFit" src="{{img_url+item.goods_thumb}}"/></view>
+        <view class='right'>
+            <view class="name textover2">{{item.goods_title}}</view>
+            <view class="price">￥{{item.price_sale}} <del>￥{{item.price_market}}</del></view>
+            <view class='country'>
+                <image src="{{img_url+item.country_thumb}}"/>
+                <text>{{item.country_name}}</text>
+                <view class="num fr">销量: <text>{{item.sale_total}}</text></view>
+            </view>
+        </view>
+    </navigator>
+    <view class="list_loading" wx:if="{{isload}}"><image mode='widthFix' class="load" mode="widthFix" src="/static/images/loading.gif">加载中</image></view>
+    <view class="list_loading" wx:if="{{error}}" bindtap="getData">加载失败,点击重新加载</view>
+    <view class="list_loading" wx:if="{{goodsList.length > 4 && nomore}}">我是有底线的</view>
+</view>

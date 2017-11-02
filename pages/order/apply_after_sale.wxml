@@ -1,0 +1,86 @@
+<!--pages/order/apply_after_sale.wxml-->
+<view class="content order_con order_detail_con after_sale">
+    <view class="list_con">
+        <navigator url="/pages/goods/detail?gsn={{goods.gsn}}" class="list clearfix">
+            <view class="img fl">
+                <image wx:if="{{goods.img_url+goods.goods_thum}}" src="{{goods.img_url+goods.goods_thumb}}"/>
+            </view>
+            <view class="info">
+                <view class="title textover">{{goods.goods_title}}</view>
+                <view class="clearfix">
+                    <view class="num fr">× {{goods.quantity}}</view>
+                    <view class="spec textover">{{goods.spec_title}}</view>
+                </view>
+                <view class="price textover">￥ {{goods.price_sale}}</view>
+            </view>
+        </navigator>
+    </view>
+    <view class="list_con item_con">
+        <view class="after_sale_box clearfix" wx:if="{{order_status == 20}}">
+            <view class="after_sale_title">服务类型</view>
+            <view class="after_sale_radio fl" data-type="63" bindtap="changType">
+                <i class="iconfont icon icon-checkbox {{sale_type == '63' ? 'active': ''}}"></i>
+                <span>退款</span>
+            </view>
+        </view>
+        <view class="after_sale_box clearfix" wx:if="{{order_status == 30}}">
+            <view class="after_sale_title">服务类型</view>
+            <view class="after_sale_radio fl" data-type="62" bindtap="changType">
+                <i class="iconfont icon icon-checkbox {{sale_type == '62' ? 'active': ''}}"></i>
+                <span>退货</span>
+            </view>
+            <view class="after_sale_radio fl" data-type="61" bindtap="changType">
+                <i class="iconfont icon icon-checkbox {{sale_type == '61' ? 'active': ''}}"></i>
+                <span>换货</span>
+            </view>
+        </view>
+        <view class="after_sale_box clearfix">
+            <view wx:if="{{order_status == 30}}">
+                <view class="after_sale_title fl" wx:if="{{sale_type == 62}}">退货原因</view>
+                <view class="after_sale_title fl" wx:if="{{sale_type == 61}}">换货原因</view>
+            </view>
+            <view class="after_sale_title fl" wx:if="{{good_data.order_status == 20 && sale_type == 63}}">退款原因</view>
+            <view class="after_sale_reason fl" bindtap="modelShow">
+                <input type="text" disabled="disabled" placeholder="请选择原因" value="{{reason_key == -1? '': reason[reason_key]}}"/>
+            </view>
+            <i class="after_sale_i iconfont fr icon-arrow"></i>
+        </view>
+        <view class="after_sale_box">
+            <view class="after_sale_title">问题描述</view>
+            <view class="after_sale_textarea">
+                <textarea placeholder="请输入您退货理由，并添加图片说明，我们尽快为您处理您的问题！" bindblur="setText"></textarea>
+            </view>
+        </view>
+        <view class="after_sale_box clearfix">
+            <view class="after_sale_title">上传凭证</view>
+            <view class="after_sale_add fl" wx:if="{{imgList.length!=0}}" wx:for="{{imgList}}">
+                <view class="imglist_del">
+                    <i class="iconfont icon-icon_delete del_btn" data-key="{{index}}" bindtap="delImg"></i>
+                </view>
+                <image mode="aspectFit" class="img" src="{{item}}"/>
+            </view>
+            <view class="after_sale_add fl" wx:if="{{imgList.length < 3}}" bindtap="fileImg">
+                <i class="iconfont icon-jia"></i>
+                <span>添加图片</span> 
+            </view>
+        </view>
+
+        <!-- 取消订单弹窗 -->
+        <view class="order_mask" wx:if="{{show}}" bindtap="modelShow"></view>
+        <view class="order_slide after_sale_slide"  wx:if="{{show}}">
+            <view class="title">请选择取消订单的理由</view>
+            <view class="item_con" wx:if="{{reason.length != 0}}">
+                <view class="item clearfix" wx:for="{{reason}}" data-key="{{index}}" bindtap="chengCheck">
+                    <i class="iconfont fr icon-checkbox {{reason_key == index ? 'active' : '' }}"></i>
+                    <view class="text textover">{{item}}</view>
+                </view>
+            </view>
+            <view class="title btn_con clearfix">
+                <view class="btn fl" bindtap="modelShow">取消</view>
+                <view class="btn fl" bindtap="modelShow">确定</view>
+            </view>
+        </view>
+        <!-- 取消订单弹窗结束 -->
+    </view>
+    <view class="after_sale_btn" bindtap="change_status">提 交</view>
+</view>

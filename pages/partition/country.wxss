@@ -1,0 +1,17 @@
+page{background: #f1f1f1;}
+.menu_con{width: 100%;height: 80rpx;line-height: 80rpx;border-bottom: solid 1px #f1f1f1;white-space: nowrap;background: #fff;color: #999;position: fixed;left: 0;top: 0;z-index: 9999;}
+.menu_con .menu{padding: 0 20rpx;display: inline-block;}
+.menu_con .menu.active{color: #e41b45;}
+
+.banner_con{margin-top: 80rpx;height: 378rpx;}
+.banner_con image{height: auto;}
+
+.goods_con{padding: 10rpx;background: #fff;}
+.goods_con .goods{padding: 10rpx;width: 50%;display: inline-block;box-sizing: border-box;}
+.goods_con .goods .img{margin: auto;padding: 50% 0;width: 100%;position: relative;}
+.goods_con .goods .img image{margin: auto;max-width: 100%;max-height: 100%;position: absolute;top: 0;right: 0;bottom: 0;left: 0;}
+.goods_con .goods .name{margin-top: 10rpx;min-height: 76rpx;line-height: 38rpx;}
+.goods_con .goods .price{margin-top: 12rpx;height: 40rpx;line-height: 40rpx;font-size: 32rpx;color: #e41b45;overflow: hidden;}
+.goods_con .goods .price del{margin-left: 10rpx;font-size: 24rpx;text-decoration: line-through;color: #999;}
+.goods_con .goods .country{margin-top: 10rpx;line-height: 40rpx;color: #999;}
+.goods_con .goods .country image{margin: 4rpx 10rpx 4rpx 0;width: 32rpx;height: 32rpx;vertical-align: top;}

@@ -1,0 +1,18 @@
+<view class="img_con">
+    <image mode='widthFix' src="{{adv.ad_img}}"></image>
+</view>
+<view class="goods_con" wx:if="{{goodslist.length != 0}}">
+    <navigator url="/pages/goods/detail?gsn={{item.gsn}}" class="goods" wx:for="{{goodslist}}">
+        <view class="img"><image mode="aspectFit" src="{{img_url+item.goods_thumb}}"/></view>
+        <view class="name textover2">{{item.goods_title}}</view>
+        <view class="price">￥{{item.price_sale}} <del>￥{{item.price_market}}</del></view>
+    </navigator>
+    <view class="list_loading" wx:if="{{isload}}"><image mode='widthFix' class="load" mode="widthFix" src="/static/images/loading.gif">加载中</image></view>
+    <view class="list_loading" wx:if="{{error}}" bindtap="getData">加载失败,点击重新加载</view>
+    <view class="list_loading" wx:if="{{goodslist.length > 4 && nomore}}">我是有底线的</view>
+</view>
+
+<view wx:if="{{goodslist.length == 0 && !isload}}" class="list_none">
+    <i class="iconfont icon icon-wunai"></i>
+    <view class="text">暂无商品</view>
+</view>

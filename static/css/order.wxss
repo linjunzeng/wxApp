@@ -1,0 +1,121 @@
+/* 确认订单 */
+.order_con{margin: 0 auto 99rpx;width: 100%;}
+
+.order_con .addr_content{padding: 30rpx 24rpx;line-height: 51rpx;background: #fff;position: relative;}
+.order_con .addr_content .name_con{padding: 0 60rpx}
+.order_con .addr_content .name{margin-right: 30rpx;}
+.order_con .addr_content .default{margin: 3rpx 30rpx;width: 80rpx;height: 44rpx;line-height: 44rpx;text-align: center;background: #e41b45;color: #fff;font-size: 24rpx;}
+.order_con .addr_content .addrtext{max-height: 104rpx;}
+.order_con .addr_content .addrtext .icon{width: 60rpx;height: 51rpx;line-height: 51rpx;text-align: center;display: block;}
+.order_con .addr_content .addrtext span{padding-right: 60rpx; }
+.order_con .addr_content .arrow{margin: auto;width: 60rpx;height: 60rpx;line-height: 60rpx;font-size: 24rpx;text-align: right;position: absolute;right: 24rpx;top: 0;bottom: 0;}
+
+.order_con .list_con{margin-top: 24rpx;background: #fff;}
+.order_con .list_con .goods_list:last-child{border-bottom:none;}
+.order_con .list{padding: 32rpx 24rpx;border-bottom: solid 1px #f0f0f0;box-sizing: border-box;}
+.order_con .list .img{width: 140rpx;height: 140rpx;position: relative;overflow: hidden;}
+.order_con .list .img img{margin: auto;max-width: 100%;max-height: 100%;position: absolute;left: 0;top: 0;right: 0;bottom: 0;}
+.order_con .list .info{padding-left: 20rpx;height: 100%;line-height: 45rpx;overflow: hidden;}
+.order_con .list .info > div{height: 45rpx;}
+.order_con .list .spec,.order_con .list_con .list .num{color: #a6a6a6;}
+.order_con .list .price{margin-top: 8rpx;text-align: right;color: #e41b45;}
+.order_con .list .none_coupon{color:#e41b45;font-size:24rpx;display: inline-block;}
+.order_con .list_con .after_sale{height:84rpx;border-top: solid 1px #f1f1f1;position:relative;top:30rpx;}
+.order_con .list_con .after_sale .refund{margin: 10rpx 0;padding:12rpx 20rpx;position:absolute;right:0;border:1px solid #f1f1f1;box-sizing:border-box;border-radius:8rpx;display:inline-block;}
+
+.order_con .item_con .list{padding: 0 24rpx;height: 86rpx;line-height: 86rpx;}
+.order_con .item_con .left{width: 140rpx;}
+.order_con .item_con .right{height: 100%;text-align: right;}
+.order_con .item_con .right input{margin: 14rpx 0;padding: 0 9rpx;width: 100%;height: 54rpx;text-align: left;box-sizing: border-box;}
+
+.order_con .list_con_1{padding: 20rpx 0;border-bottom: solid 1px #f0f0f0;color: #666;}
+.order_con .list_con_1 .list{height: 60rpx;line-height: 60rpx;border: 0 none;}
+.order_con .red{color: #e41b45;}
+
+.order_foot{width: 100%;height: 99rpx;line-height: 99rpx;border-top: solid 1px #f0f0f0;background: #fff;position: fixed;left: 0;bottom: 0;z-index: 9999;}
+.order_foot .btn{width: 210rpx;height: 100%;font-size: 32rpx;text-align: center;background: #e41b45;color: #fff;}
+.order_foot .bg1{border-left: solid 1px #f1f1f1;background-color: #535353;}
+.order_foot .price_con{padding: 0 24rpx;font-size: 32rpx;font-weight: 500;color: #e41b45;}
+
+
+/* 订单支付 */
+.order_con .type_con li{padding: 0 20rpx;height: 90rpx;line-height: 90rpx;border-bottom: solid 1px #f0f0f0;position: relative;}
+.order_con .type_con li input{width: 100%;height: 100%;opacity: 0;position: absolute;left: 0;top: 0;z-index: 9999;}
+.order_con .type_con li .icon{margin-right: 20rpx;width: 69rpx;height: 100%;font-size: 60rpx;}
+.order_con .type_con li .check{width: 39rpx;height: 100%;font-size: 38rpx;color: #ccc;}
+.order_con .type_con li.active .check{color: #666;}
+
+/* 支付完成 */
+.pay_success .info{padding: 30rpx;line-height: 50rpx;}
+.pay_success .info span{color: #e41b45;}
+.pay_success .btn_con{margin: 0 auto;width: 100%;height: 99rpx;line-height: 99rpx;text-align: center;background: #f4f4f4;color: #999999;}
+.pay_success .btn_con .btn{width: 50%;}
+
+/* 订单列表 */
+.order_list{padding-top: 87rpx;width: 100%;} 
+.order_list .order_nav{width: 100%;border-bottom: solid 1px #f1f1f1;position: fixed;left: 0;top: 0;z-index: 9999;}
+.order_list .order_nav navigator{width: 20%;height: 87rpx;line-height: 87rpx;text-align: center;background: #fff;}
+.order_list .order_nav .active{color:#e41b45;position: relative;}
+.order_list .order_nav .active::before{margin: auto;content: '';width: 80rpx;height: 4rpx;background: #e41b45;position: absolute;left: 0;bottom: 0;right: 0;}
+
+.order_list .list{margin-top: 20rpx;width: 100%;background: #fff;}
+.order_list .list .header{padding: 24rpx 24rpx;border-bottom: solid 1px #f1f1f1;}
+.order_list .list .header .icon{margin-right: 9rpx;font-size: 32rpx;}
+.order_list .list .header .status{color: #e41b45;}
+
+.order_list .list .info{padding: 24rpx;height: 159rpx;border-bottom: solid 1px #f1f1f1;}
+.order_list .list .info .img{margin-right: 20rpx;width: 159rpx;height: 159rpx;position: relative;left: 0;top: 0}
+.order_list .list .info img{margin: auto;max-width: 100%;max-height: 100%;position: absolute;left: 0;top: 0;right: 0;bottom: 0;}
+.order_list .list .info .right{height: 100%;line-height: 39rpx;overflow: hidden;}
+.order_list .list .info .spec{height: 39rpx;color: #666;}
+.order_list .list .info .num{text-align: right;}
+.order_list .list .info .price{text-align: right;color: #e41b45;}
+
+.order_list .list .foot{padding: 9rpx 24rpx;}
+.order_list .list .foot .add{line-height: 60rpx}
+.order_list .list .foot .btn_con{overflow: hidden;}
+.order_list .list .foot .btn{margin-left: 9rpx;padding: 9rpx 24rpx;border: solid 1px #f1f1f1;border-radius: 8rpx;font-size: 24rpx}
+
+/* 订单详情 */
+.order_detail_con{margin: 0 auto 99rpx;width: 100%;}
+.order_detail_con .tips{margin: 20rpx 0;padding: 0 24rpx;height: 120rpx;line-height: 120rpx;font-size: 32rpx;background-color: #535353;color: #fff;}
+.order_detail_con .tips .icon{margin-right: 20rpx;font-size: 50rpx;}
+.order_detail_con .tips .countdown{font-size:36rpx;}
+
+/* 弹窗及动画 */
+.order_mask{width: 100%;height: 100%;background-color: #000; opacity: .3; position: fixed;top: 0;left: 0;right: 0;bottom: 0;z-index: 9999;}
+.order_slide{margin: -40% auto 0;width: 560rpx;height: auto;border-radius: 8rpx;background-color: #fff;position: fixed;left: 0;top: 50%;right: 0;z-index: 9999;overflow: hidden;}
+.order_slide .title{height: 80rpx;line-height: 80rpx;text-align: center;border-bottom: 1px solid #f1f1f1;}
+.order_slide .btn_con{border-bottom: 0 none;}
+.order_slide .btn_con .btn{width: 50%;border-right: solid 1px #f1f1f1;box-sizing: border-box;}
+.order_slide .item{padding: 20rpx 24rpx;border-bottom: solid 1px #f1f1f1;box-sizing: border-box;position: relative;}
+.order_slide .item .text{margin-right: 32rpx;}
+.order_slide .item input{width: 100%;height: 100%;position: absolute;left: 0;top: 0;opacity: 0;z-index: 9999;}
+.order_slide .item i{margin: auto;width: 32rpx;height: 32rpx;color: #ccc;position: absolute;right: 24rpx;top: 0;bottom: 0;}
+.order_slide .item .active{color: #e41b45;}
+
+.slide-fade-enter{-webkit-transform:scale(0,0);transform:scale(0,0);}
+.slide-fade-enter-active{transition:all .4s;}
+.slide-fade-enter-to{-webkit-transform:scale(1);transform:scale(1);}
+
+.slide-fade-leave{-webkit-transform: scale(1,1);transform: scale(1,1);}
+.slide-fade-leave-active{transition: all .4s;}
+.slide-fade-leave-to{-webkit-transform: scale(0);transform: scale(0);}
+
+/* 优惠券弹窗动画效果 */
+.mask{width: 100%;height: 100%;background: rgba(0,0,0,.34);position: fixed;left: 0;top: 0;z-index: 9999;}
+.confirm_content{margin: auto;height: 699rpx;background: #fff;position: absolute;left: 40rpx;top: 0;right: 40rpx;bottom: 0;z-index: 9999;}
+.confirm_content .close{width: 80rpx;height: 80rpx;line-height: 80rpx;font-size: 60rpx;border-radius: 50%;text-align: center;background: #fff;position: absolute;right: 20rpx;top: -50rpx;z-index: 9999;}
+.confirm_content .content_scroll{padding-bottom: 80rpx;width: 100%;height: 100%;box-sizing: border-box;}
+.confirm_content .coupon_list{padding:2rpx 2rpx 2rpx 32rpx;margin:40rpx auto 0;width:85%;height:158rpx;position:relative;background:#e41b45;overflow: hidden;box-sizing: border-box;}
+.confirm_content .coupon_list .left_i,.confirm_content .coupon_list .right_i{margin: auto;width:32rpx;height:32rpx;position:absolute;top:0;left:-16rpx;bottom: 0;background:#fff;border-radius:50%;}
+.confirm_content .coupon_list .right_i{left: auto;right:-18rpx;border-left:1px solid #e41b45;}
+.confirm_content .coupon_list .coupon_text{width: 100%;height: 100%;background:#fff;overflow: hidden;}
+.confirm_content .coupon_list .coupon_text .par{margin: 32rpx 0;width:189rpx;font-size:69rpx;color:#e41b45;}
+.confirm_content .coupon_list .coupon_text .copy{margin: 20rpx 0;overflow: hidden;}
+.confirm_content .coupon_list .coupon_text .copy .condition{font-size:32rpx;}
+.confirm_content .coupon_list .coupon_text .copy .time{line-height: 40rpx;font-size:24rpx;}
+.coupon_cancel{width:100%;height: 80rpx;line-height: 80rpx;position:absolute;bottom:0;background:#e41b45;text-align:center;color:#fff;font-size:32rpx}
+
+.fade-enter-active, .fade-leave-active {transition: transform .4s ease-out;}
+.fade-enter, .fade-leave-to{transform:translate3d(0,150%,0);}

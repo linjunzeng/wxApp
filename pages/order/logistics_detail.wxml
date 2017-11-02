@@ -1,0 +1,27 @@
+<view class="content">
+    <view class="list_con">
+        <navigator url="/goods/detail?gsn={{item.gsn}}" class="list clearfix" wx:for="{{logisticalData.goods_list}}">
+            <view class="img fl"><image src="{{item.goods_thumb}}"/></view>
+            <view class="info">
+                <view class="title textover">{{item.goods_title}}</view>
+                <view class="spec textover">{{item.spec_title}}</view>
+                <view class="clearfix">
+                    <view class="num fr">× {{item.order_total}}</view>
+                    <view class="spec textover">{{item.specification}}</view>
+                </view>
+                <view class="price_con clearfix">
+                    <view class="price textover">￥ {{item.price_sale}}</view>
+                </view>
+            </view>
+        </navigator>
+    </view>
+    <view class="express_info">
+        <view class="title">包裹跟踪</view>
+        <view class="info">
+            <view class="item" wx:for="{{logisticalData.express_content}}">
+                <view class="text">{{item.context}}</view>
+                <view class="time">{{item.time}}</view>
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,104 @@
+<!--pages/goods/detail.wxml-->
+<import src="../../wxParse/wxParse.wxml"/>
+<view class="detail_con">
+    <swiper indicator-dots="true" autoplay="true" interval="5000" duration="300" style="height: {{windosH}}px">
+        <block wx:for="{{detailData.picture}}">
+            <swiper-item>
+                <image src="{{detailData.img_url+item.image}}" class="slide-image"  mode="aspectFill"/>
+            </swiper-item>
+        </block>
+    </swiper>
+
+    <view class="info_con spike_con clearfix">
+        <view class='price fl'>￥ <span>{{detailData.price}}</span> 限时购</view>
+        <view class='time fr'>距离结束 {{timeDate}}</view>
+    </view>
+    
+    <!-- 商品信息 -->
+    <view class="info_con">
+        <view class="title textover2">{{detailData.goods_title}}</view>
+        <view class="title brief textover2" wx:if="{{detailData.goods_brief}}">{{detailData.goods_brief}}</view>
+        <view class="type clearfix">
+            <li class="fl">
+                <image wx:if="{{detailData.country_thumb}}" class="icon" src="{{detailData.img_url}}{{detailData.country_thumb}}"/>
+                <span>{{detailData.country_name}}</span>
+            </li>
+            <li class="fl">
+                <i class="icon iconfont icon-kuajingshangpin"></i>
+                <span>跨境商品</span>
+            </li>
+            <li class="fl">
+                <i class="icon iconfont icon-leixing"></i>
+                <span>{{typeArr[detailData.goods_pro-1]}}</span>
+            </li>
+        </view>
+    </view>
+
+    <!-- 数量 --> 
+    <view class="info_con clearfix">
+        <view class="number_con clearfix">
+            <view class="left fl">选择数量</view>
+            <view class="number fr">
+                <view class="{{quantity <= 1 ? 'icon active fl' : 'icon fl'}}" data-num="-1" bindtap="changeNum">-</view>
+                <input class="text fl" type="text" value="{{quantity}}" data-num="0" bindblur="changeNum" />
+                <view class="{{quantity >= detailData.store_total ? 'icon active fl' : 'icon fl'}}" data-num="1" bindtap="changeNum">+</view>
+            </view>
+        </view>
+    </view> 
+
+    <view class="info_con">
+        <view class="item clearfix">
+            <view class="left fl">运费：</view>
+            <view class="right textover">{{detailData.express_price.type +' '+ detailData.express_price.value }}</view>
+        </view>
+        <view class="item clearfix">
+            <view class="left fl">税费：</view>
+            <view class="right textover">{{detailData.price_tax != '0.00' ? detailData.price_tax : '本商品已包税，无需再额外缴纳税费。'}}            </view>
+        </view>
+        <view class="item clearfix">
+            <view class="left fl">说明：</view>
+            <view class="right textover" data-type="1" bindtap="mask">点击查看 <i class="iconfont icon-tishi"></i></view>
+        </view>
+    </view>
+    <!-- 详情 -->
+     <view class="detail_info">
+        <view class="detail"><i class="iconfont icon-e6e5"></i><span>商品详情</span></view>
+        <template is="wxParse" data="{{wxParseData:goods_detail.nodes}}"/>
+    </view> 
+    <!-- 底部按钮 -->
+    <view class="detail_foot clearfix">
+        <navigator url="/pages/index/index" open-type="switchTab" class="icon fl"><i class="iconfont icon-shouye"></i></navigator>
+        <navigator url="/pages/index/shopcart" open-type="switchTab" class="icon fl"><i class="iconfont icon-gouwuche1"></i></navigator>
+        <view class="textover clearfix">
+            <view class="icon fl btn buy" bindtap="buyNow">立即购买</view>
+        </view>
+    </view>   
+    <!-- 弹层 -->
+    <view wx:if="{{isshow}}" class="detail_mask"  data-type="2" catchtap="mask">
+        <view class="mask_content" wx:if="{{visable}}" catchtap>
+            <i class="iconfont close icon-close1" data-type="2" catchtap="mask"></i>
+            <view wx:if="{{type == 1}}" class="content explain">
+                <view class="title">商品说明</view>
+                <view class="item clearfix">
+                    <view class="left fl">税费说明 : </view>
+                    <view class="right">据国家政策规定，本商品适用于“跨境综合税”，税率为11.9%，实际结算税费请以提交订单时的应付总额明细为准。</view>
+                </view>
+                <view class="item clearfix">
+                    <view class="left fl">假一赔十 : </view>
+                    <view class="right">友品集全球购每一件商品都通过严苛的品质把关，保障正品，保障品质。特推出“假一赔十”的正品保障政策，杜绝一切假货，让您无忧购物。</view>
+                </view>
+                <view class="item clearfix">
+                    <view class="left fl">退<text decode="{{true}}">&emsp;&emsp;</text>货 : </view>
+                    <view class="right">本商品不支持7天无理由退货</view>
+                </view>
+                <view class="item clearfix">
+                    <view class="left fl">发<text decode="{{true}}">&emsp;&emsp;</text>货 : </view>
+                    <view class="right">自营{{typeArr[detailData.goods_pro-1]}}仓库发货</view>
+                </view>
+            </view>
+            <view wx:if="{{type == 2}}" class="content goods">
+                 
+            </view> 
+        </view>
+    </view>
+</view>

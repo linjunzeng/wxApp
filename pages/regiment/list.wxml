@@ -1,0 +1,20 @@
+<view class="regiment_con">
+    <view class="banner" wx:if="{{adv}}"><image mode="widthFix" src="{{adv.ad_img}}"/></view>
+    <ul class="list_con clearfix">
+        <navigator url="./detail?rid={{item.rid}}" class="list fl" wx:for="{{goodslist}}">
+            <view class="img">
+                <image mode="aspectFit" src="{{item.goods_thumb}}"/>
+            </view>
+            <view class="name textover2">{{item.goods_title}}</view>
+            <view class="price">￥ {{item.price_group}}<del>￥ {{item.price_sale}}</del></view>
+        </navigator>
+    </ul>
+
+    <view wx:if="{{goodslist.length == 0 && !isload}}" class="list_none">
+        <i class="iconfont icon icon-wunai"></i>
+        <view class="text">搜索不到产品</view>
+    </view>
+    <view class="list_loading" wx:if="{{isload}}"><image mode="widthFix" class="load" src="/static/images/loading.gif"/>加载中</view>
+    <view class="list_loading" wx:if="{{error}}" bindtap="getList">加载失败,点击重新加载</view>
+    <view class="list_loading" wx:if="{{nomore}}">我是有底线的</view>
+</view>

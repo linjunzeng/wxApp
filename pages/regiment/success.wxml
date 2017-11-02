@@ -1,0 +1,39 @@
+<view class="order_con regiment_con" wx:if="{{detail}}">
+    <view class="info_con">
+       <view class="title">
+            <i wx:if="{{detail.status == 41 || detail.status == 51}}" class="iconfont err icon-checkbox"></i>
+            <i wx:else class="iconfont red icon-checkbox"></i>
+            {{detail.status_show}}
+        </view>
+       <view wx:if="{{detail.status == 21}}" class="tips"><span class="red">{{downtime}} 后结束</span> 还差 <span class="red">{{detail.order.num - detail.order.use_num}}</span> 个人开团成功,转发分享拼团</view>
+       <view wx:if="{{detail.status == 41}}" class="tips">拼团失败,退款中</view>
+       <view wx:if="{{detail.status == 51}}" class="tips">已退款,请留意信息</view>
+       <view class="avatar_con">
+           <view class="img" wx:for="{{detail.order.num-0}}">
+               <image wx:if="{{detail.user[index]}}" src="{{detail.user[index].avatar}}"/>
+               <i wx:if="{{!detail.user[index]}}" class="img_none iconfont icon-e6bc"></i>
+           </view>
+       </view>
+       <navigator open-type="switchTab" class="btn" url="/pages/index/index">返回首页</navigator>
+    </view>
+    <view class="list_con item_con">
+        <view class="list_con_1">
+            <view class="list clearfix">
+                <view class="left fl">商品名称</view>
+                <view class="right textover">{{detail.order.goods_title}}</view>
+            </view>
+            <view class="list clearfix">
+                <view class="left fl">收货人</view>
+                <view class="right textover">{{detail.order.consignee}}</view>
+            </view>
+            <view class="list clearfix">
+                <view class="left fl">收货地址</view>
+                <view class="right textover2">{{detail.order.province+detail.order.city+detail.order.area+detail.order.address}}</view>
+            </view>
+        </view>
+        <view class="list clearfix">
+            <view class="left fl">拼团时间</view>
+            <view class="right textover">{{order_item}}</view>
+        </view>
+    </view>
+</view>

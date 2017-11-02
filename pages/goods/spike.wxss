@@ -1,0 +1,17 @@
+page{background: #f1f1f1;}
+.title{padding: 10rpx 0;width: 100%;text-align: center;background: #e41b45;color: #fff;}
+
+.goods_con{background: #fff;}
+.goods_con .goods{padding: 20rpx;border-bottom: solid 1px #f1f1f1;}
+.goods_con .goods .sort_img{margin: 20rpx auto 40rpx;width: 70%;display: block;}
+.goods_con .goods .img{margin-right: 20rpx;width: 200rpx;height: 200rpx;position: relative;}
+.goods_con .goods .img image{margin: auto;max-width: 100%;max-height: 100%;position: absolute;top: 0;right: 0;bottom: 0;left: 0;}
+.goods_con .goods .right{height: 200rpx;overflow: hidden}
+.goods_con .goods .name{min-height: 80rpx;line-height: 40rpx;}
+.goods_con .goods .price{margin-top: 30rpx;height: 60rpx;line-height: 60rpx;font-size: 32rpx;color: #e41b45;overflow: hidden;}
+.goods_con .goods .price del{margin-left: 10rpx;font-size: 24rpx;text-decoration: line-through;color: #999;}
+.goods_con .goods .price .btn{margin: 10rpx 0;padding: 0 18rpx;-height: 50rpx;line-height: 50rpx;border-radius: 8rpx;font-size: 28rpx;background: #e41b45;color: #fff;}
+
+.goods_con .goods .progress{height: 30rpx;line-height: 30rpx;overflow: hidden;}
+.goods_con .goods .progress .progress_bar{margin: 14rpx 0;border-radius: 8rpx;overflow: hidden;}
+.goods_con .goods .progress text{margin-left: 30rpx;font-size: 24rpx;color: #e41b45;}

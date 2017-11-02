@@ -1,0 +1,26 @@
+@import '/static/css/detail.wxss';
+page{background: #f1f1f1;}
+.regiment_con .header{padding: 26rpx 50rpx;border-bottom: solid 1px #f1f1f1;background: #fff;}
+.regiment_con .goods_info{padding: 14rpx 24rpx;background: #fff;}
+.regiment_con .goods_info .img{margin-right: 20rpx;width: 170rpx;height: 170rpx;position: relative;}
+.regiment_con .goods_info img{margin: auto;max-width: 100%;max-height: 100%;position: absolute;left: 0;top: 0;right: 0;bottom: 0;}
+.regiment_con .goods_info .right{height: 170rpx;line-height: 48rpx;overflow: hidden;}
+.regiment_con .goods_info .name{height: 80rpx;line-height: 39rpx;}
+.regiment_con .goods_info .num{font-size: 24rpx;color: #999;}
+.regiment_con .goods_info .num span{margin-left: 39rpx}
+.regiment_con .goods_info .price{color: #e41b45;}
+.regiment_con .goods_info .price span{margin-left: 9rpx;font-size: 24rpx;color: #999;}
+
+.regiment_con .avatar_con{margin-top: 24rpx;padding: 50rpx;text-align: center;background: #fff;}
+.regiment_con .avatar_con .img{margin: 0 20rpx;width: 92rpx;height: 92rpx;display: inline-block;position: relative;overflow: visible}
+.regiment_con .avatar_con .img image, .regiment_con .avatar_con .img .img_none{margin: auto;max-width: 100%;max-height: 100%;border-radius: 50%;position: absolute;left: 0;top: 0;right: 0;bottom: 0;overflow: hidden;}
+.regiment_con .avatar_con .img .img_none{line-height: 92rpx;border: dashed 1px #c8c8c8;font-size: 45rpx;color: #c8c8c8;}
+.regiment_con .avatar_con .img:first-child:before{content: '团长';padding: 3rpx 15rpx;border-radius: 8rpx;font-size: 24rpx;text-align: center;background: #e41b45;color: #fff;position: absolute;left: -20px;top: -20rpx;z-index: 9999;}
+.regiment_con .avatar_con .btn{margin-top: 20rpx;padding: 20rpx 0;width: 100%;border-radius: 8rpx;text-align: center;background: #e41b45;color: #fff;}
+.regiment_con .avatar_con .time{margin-top: 30rpx;}
+.regiment_con .avatar_con .red{color: #e41b45;}
+.regiment_con .avatar_con .tips{margin-top: 39rpx;text-align: left;}
+
+.regiment_con .detail_foot .icon{width: 25%;}
+.regiment_con .detail_foot .btn{width: 100%;}
+.regiment_con .goods .btn{width: 100%;}

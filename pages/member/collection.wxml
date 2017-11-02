@@ -1,0 +1,32 @@
+<view class="content collect_con">
+    <view class="list_con" wx:if="{{collectionData.length != 0}}">
+        <view class="list head clearfix">
+            <view class="left fl" bindtap="checkAll">
+                <i class="iconfont icon icon-checkbox {{checkall ? 'active':''}}"></i>
+            </view>
+            <i class="iconfont remove fr icon-icon_delete" bindtap="deleteList"></i>
+        </view>
+        <view class="list clearfix" wx:for="{{collectionData}}">
+            <view class="left fl" data-key="{{index}}" bindtap="checkSon">
+                <i class="iconfont icon icon-checkbox {{item.check ? 'active':''}}"></i>
+            </view>
+            <view class="info clearfix">
+                <navigator url="/pages/goods/detail?gsn={{item.gsn}}" class="img fl"><image src="{{img_url+item.goods_thumb}}"/></navigator>
+                <view class="detail">
+                    <navigator url="/pages/goods/detail?gsn={{item.gsn}}" class="name textover2">{{item.goods_title}}</navigator>
+                    <view class="spec">销量：{{item.sale_total}}</view>
+                    <view class="price_con clearfix">
+                        <view class="price textover">¥{{item.price_sale}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view wx:else class="cart_none_con">
+        <view class="list_none">
+            <i class="iconfont icon icon-wunai"></i>
+            <view class="text">收藏列表空空的</view>
+            <navigator class="btn" url="/pages/index/index" open-type="switchTab" replace>去看看</navigator>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,7 @@
+.regiment_con .list_con{padding: 9rpx;overflow: hidden;box-sizing: border-box;} 
+.regiment_con .list{padding: 9rpx;width: 50%;box-sizing: border-box;display: inline-block;}
+.regiment_con .list .img{padding: 50% 0;width: 100%;position: relative;}
+.regiment_con .list image{margin: auto;max-width: 100%;max-height: 100%;position: absolute;left: 0;top: 0;right: 0;bottom: 0;}
+.regiment_con .list .name{margin: 9rpx 0;min-height: 80rpx;line-height: 39rpx;}
+.regiment_con .list .price{font-size: 30rpx;color: #e41b45;}
+.regiment_con .list .price del{margin-left: 20rpx;font-size: 24rpx;color: #999;text-decoration: line-through;}
